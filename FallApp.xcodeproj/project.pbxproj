@@ -15,6 +15,12 @@
 		76D383CF1AE5B54200359774 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 76D383CE1AE5B54200359774 /* Images.xcassets */; };
 		76D383D21AE5B54200359774 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 76D383D01AE5B54200359774 /* LaunchScreen.xib */; };
 		76D383DE1AE5B54200359774 /* FallAppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 76D383DD1AE5B54200359774 /* FallAppTests.m */; };
+		76D383E81AE83BDC00359774 /* BLE_Framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 76D383E71AE83BDC00359774 /* BLE_Framework */; };
+		76D383EA1AE83BE900359774 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 76D383E91AE83BE900359774 /* CoreData.framework */; };
+		76D383EC1AE83BF200359774 /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 76D383EB1AE83BF200359774 /* CoreBluetooth.framework */; };
+		76D383F01AE83C2E00359774 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 76D383EF1AE83C2E00359774 /* UIKit.framework */; };
+		76D383F21AE83C4800359774 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 76D383F11AE83C4800359774 /* CoreGraphics.framework */; };
+		76D383F41AE83C5000359774 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 76D383F31AE83C5000359774 /* Foundation.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,6 +48,13 @@
 		76D383D71AE5B54200359774 /* FallAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FallAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		76D383DC1AE5B54200359774 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		76D383DD1AE5B54200359774 /* FallAppTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FallAppTests.m; sourceTree = "<group>"; };
+		76D383E71AE83BDC00359774 /* BLE_Framework */ = {isa = PBXFileReference; lastKnownFileType = folder; name = BLE_Framework; path = FallApp/BLE_Framework; sourceTree = "<group>"; };
+		76D383E91AE83BE900359774 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		76D383EB1AE83BF200359774 /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
+		76D383ED1AE83BFF00359774 /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
+		76D383EF1AE83C2E00359774 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		76D383F11AE83C4800359774 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		76D383F31AE83C5000359774 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -49,6 +62,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				76D383F41AE83C5000359774 /* Foundation.framework in Frameworks */,
+				76D383F21AE83C4800359774 /* CoreGraphics.framework in Frameworks */,
+				76D383F01AE83C2E00359774 /* UIKit.framework in Frameworks */,
+				76D383EC1AE83BF200359774 /* CoreBluetooth.framework in Frameworks */,
+				76D383EA1AE83BE900359774 /* CoreData.framework in Frameworks */,
+				76D383E81AE83BDC00359774 /* BLE_Framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -65,6 +84,13 @@
 		76D383B21AE5B54100359774 = {
 			isa = PBXGroup;
 			children = (
+				76D383F31AE83C5000359774 /* Foundation.framework */,
+				76D383F11AE83C4800359774 /* CoreGraphics.framework */,
+				76D383EF1AE83C2E00359774 /* UIKit.framework */,
+				76D383ED1AE83BFF00359774 /* CoreFoundation.framework */,
+				76D383EB1AE83BF200359774 /* CoreBluetooth.framework */,
+				76D383E91AE83BE900359774 /* CoreData.framework */,
+				76D383E71AE83BDC00359774 /* BLE_Framework */,
 				76D383BD1AE5B54200359774 /* FallApp */,
 				76D383DA1AE5B54200359774 /* FallAppTests */,
 				76D383BC1AE5B54200359774 /* Products */,
@@ -422,6 +448,7 @@
 				76D383E31AE5B54200359774 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		76D383E41AE5B54200359774 /* Build configuration list for PBXNativeTarget "FallAppTests" */ = {
 			isa = XCConfigurationList;
@@ -430,6 +457,7 @@
 				76D383E61AE5B54200359774 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
