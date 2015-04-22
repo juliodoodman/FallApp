@@ -1,18 +1,18 @@
 //
-//  ViewController.m
+//  DashboardViewController.m
 //  FallApp
 //
 //  Created by Julio Morera on 4/20/15.
 //  Copyright (c) 2015 Julio Morera. All rights reserved.
 //
 
-#import "ViewController.h"
+#import "DashboardViewController.h"
 
-@interface ViewController ()
+@interface DashboardViewController ()
 
 @end
 
-@implementation ViewController
+@implementation DashboardViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];

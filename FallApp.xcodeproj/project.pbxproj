@@ -7,15 +7,21 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		76362CC11AE8456500A132E6 /* BLE_Framework in Resources */ = {isa = PBXBuildFile; fileRef = 76362CC01AE8456500A132E6 /* BLE_Framework */; };
+		76362CC41AE8460D00A132E6 /* BLE_Framework in Sources */ = {isa = PBXBuildFile; fileRef = 76362CC01AE8456500A132E6 /* BLE_Framework */; };
+		76362CC71AE8486F00A132E6 /* LoginScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 76362CC61AE8486F00A132E6 /* LoginScreenViewController.m */; };
+		76362CCA1AE84BA000A132E6 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 76362CC91AE84BA000A132E6 /* SettingsViewController.m */; };
+		76362CCD1AE84D4000A132E6 /* SignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 76362CCC1AE84D4000A132E6 /* SignUpViewController.m */; };
+		76362CD01AE84F7200A132E6 /* HowToViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 76362CCF1AE84F7200A132E6 /* HowToViewController.m */; };
+		76362CD31AE852F200A132E6 /* TestingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 76362CD21AE852F200A132E6 /* TestingViewController.m */; };
 		76D383C11AE5B54200359774 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 76D383C01AE5B54200359774 /* main.m */; };
 		76D383C41AE5B54200359774 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 76D383C31AE5B54200359774 /* AppDelegate.m */; };
 		76D383C71AE5B54200359774 /* FallApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 76D383C51AE5B54200359774 /* FallApp.xcdatamodeld */; };
-		76D383CA1AE5B54200359774 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 76D383C91AE5B54200359774 /* ViewController.m */; };
+		76D383CA1AE5B54200359774 /* DashboardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 76D383C91AE5B54200359774 /* DashboardViewController.m */; };
 		76D383CD1AE5B54200359774 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 76D383CB1AE5B54200359774 /* Main.storyboard */; };
 		76D383CF1AE5B54200359774 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 76D383CE1AE5B54200359774 /* Images.xcassets */; };
 		76D383D21AE5B54200359774 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 76D383D01AE5B54200359774 /* LaunchScreen.xib */; };
 		76D383DE1AE5B54200359774 /* FallAppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 76D383DD1AE5B54200359774 /* FallAppTests.m */; };
-		76D383E81AE83BDC00359774 /* BLE_Framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 76D383E71AE83BDC00359774 /* BLE_Framework */; };
 		76D383EA1AE83BE900359774 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 76D383E91AE83BE900359774 /* CoreData.framework */; };
 		76D383EC1AE83BF200359774 /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 76D383EB1AE83BF200359774 /* CoreBluetooth.framework */; };
 		76D383F01AE83C2E00359774 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 76D383EF1AE83C2E00359774 /* UIKit.framework */; };
@@ -34,21 +40,31 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		76362CC01AE8456500A132E6 /* BLE_Framework */ = {isa = PBXFileReference; lastKnownFileType = folder; name = BLE_Framework; path = FallApp/BLE_Framework; sourceTree = "<group>"; };
+		76362CC51AE8486F00A132E6 /* LoginScreenViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginScreenViewController.h; sourceTree = "<group>"; };
+		76362CC61AE8486F00A132E6 /* LoginScreenViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginScreenViewController.m; sourceTree = "<group>"; };
+		76362CC81AE84BA000A132E6 /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
+		76362CC91AE84BA000A132E6 /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
+		76362CCB1AE84D4000A132E6 /* SignUpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignUpViewController.h; sourceTree = "<group>"; };
+		76362CCC1AE84D4000A132E6 /* SignUpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignUpViewController.m; sourceTree = "<group>"; };
+		76362CCE1AE84F7200A132E6 /* HowToViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HowToViewController.h; sourceTree = "<group>"; };
+		76362CCF1AE84F7200A132E6 /* HowToViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HowToViewController.m; sourceTree = "<group>"; };
+		76362CD11AE852F200A132E6 /* TestingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestingViewController.h; sourceTree = "<group>"; };
+		76362CD21AE852F200A132E6 /* TestingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestingViewController.m; sourceTree = "<group>"; };
 		76D383BB1AE5B54200359774 /* FallApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FallApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		76D383BF1AE5B54200359774 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		76D383C01AE5B54200359774 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		76D383C21AE5B54200359774 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		76D383C31AE5B54200359774 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		76D383C61AE5B54200359774 /* FallApp.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = FallApp.xcdatamodel; sourceTree = "<group>"; };
-		76D383C81AE5B54200359774 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		76D383C91AE5B54200359774 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		76D383C81AE5B54200359774 /* DashboardViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DashboardViewController.h; sourceTree = "<group>"; };
+		76D383C91AE5B54200359774 /* DashboardViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DashboardViewController.m; sourceTree = "<group>"; };
 		76D383CC1AE5B54200359774 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		76D383CE1AE5B54200359774 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		76D383D11AE5B54200359774 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		76D383D71AE5B54200359774 /* FallAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FallAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		76D383DC1AE5B54200359774 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		76D383DD1AE5B54200359774 /* FallAppTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FallAppTests.m; sourceTree = "<group>"; };
-		76D383E71AE83BDC00359774 /* BLE_Framework */ = {isa = PBXFileReference; lastKnownFileType = folder; name = BLE_Framework; path = FallApp/BLE_Framework; sourceTree = "<group>"; };
 		76D383E91AE83BE900359774 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		76D383EB1AE83BF200359774 /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
 		76D383ED1AE83BFF00359774 /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
@@ -67,7 +83,6 @@
 				76D383F01AE83C2E00359774 /* UIKit.framework in Frameworks */,
 				76D383EC1AE83BF200359774 /* CoreBluetooth.framework in Frameworks */,
 				76D383EA1AE83BE900359774 /* CoreData.framework in Frameworks */,
-				76D383E81AE83BDC00359774 /* BLE_Framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -84,13 +99,13 @@
 		76D383B21AE5B54100359774 = {
 			isa = PBXGroup;
 			children = (
+				76362CC01AE8456500A132E6 /* BLE_Framework */,
 				76D383F31AE83C5000359774 /* Foundation.framework */,
 				76D383F11AE83C4800359774 /* CoreGraphics.framework */,
 				76D383EF1AE83C2E00359774 /* UIKit.framework */,
 				76D383ED1AE83BFF00359774 /* CoreFoundation.framework */,
 				76D383EB1AE83BF200359774 /* CoreBluetooth.framework */,
 				76D383E91AE83BE900359774 /* CoreData.framework */,
-				76D383E71AE83BDC00359774 /* BLE_Framework */,
 				76D383BD1AE5B54200359774 /* FallApp */,
 				76D383DA1AE5B54200359774 /* FallAppTests */,
 				76D383BC1AE5B54200359774 /* Products */,
@@ -111,8 +126,18 @@
 			children = (
 				76D383C21AE5B54200359774 /* AppDelegate.h */,
 				76D383C31AE5B54200359774 /* AppDelegate.m */,
-				76D383C81AE5B54200359774 /* ViewController.h */,
-				76D383C91AE5B54200359774 /* ViewController.m */,
+				76362CC51AE8486F00A132E6 /* LoginScreenViewController.h */,
+				76362CC61AE8486F00A132E6 /* LoginScreenViewController.m */,
+				76362CC81AE84BA000A132E6 /* SettingsViewController.h */,
+				76362CC91AE84BA000A132E6 /* SettingsViewController.m */,
+				76D383C81AE5B54200359774 /* DashboardViewController.h */,
+				76D383C91AE5B54200359774 /* DashboardViewController.m */,
+				76362CCB1AE84D4000A132E6 /* SignUpViewController.h */,
+				76362CCC1AE84D4000A132E6 /* SignUpViewController.m */,
+				76362CCE1AE84F7200A132E6 /* HowToViewController.h */,
+				76362CCF1AE84F7200A132E6 /* HowToViewController.m */,
+				76362CD11AE852F200A132E6 /* TestingViewController.h */,
+				76362CD21AE852F200A132E6 /* TestingViewController.m */,
 				76D383CB1AE5B54200359774 /* Main.storyboard */,
 				76D383CE1AE5B54200359774 /* Images.xcassets */,
 				76D383D01AE5B54200359774 /* LaunchScreen.xib */,
@@ -197,6 +222,7 @@
 				TargetAttributes = {
 					76D383BA1AE5B54200359774 = {
 						CreatedOnToolsVersion = 6.3;
+						DevelopmentTeam = FW8M2SJX5U;
 					};
 					76D383D61AE5B54200359774 = {
 						CreatedOnToolsVersion = 6.3;
@@ -229,6 +255,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				76D383CD1AE5B54200359774 /* Main.storyboard in Resources */,
+				76362CC11AE8456500A132E6 /* BLE_Framework in Resources */,
 				76D383D21AE5B54200359774 /* LaunchScreen.xib in Resources */,
 				76D383CF1AE5B54200359774 /* Images.xcassets in Resources */,
 			);
@@ -248,10 +275,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				76362CC41AE8460D00A132E6 /* BLE_Framework in Sources */,
 				76D383C41AE5B54200359774 /* AppDelegate.m in Sources */,
+				76362CC71AE8486F00A132E6 /* LoginScreenViewController.m in Sources */,
 				76D383C71AE5B54200359774 /* FallApp.xcdatamodeld in Sources */,
-				76D383CA1AE5B54200359774 /* ViewController.m in Sources */,
+				76D383CA1AE5B54200359774 /* DashboardViewController.m in Sources */,
+				76362CD01AE84F7200A132E6 /* HowToViewController.m in Sources */,
 				76D383C11AE5B54200359774 /* main.m in Sources */,
+				76362CCD1AE84D4000A132E6 /* SignUpViewController.m in Sources */,
+				76362CCA1AE84BA000A132E6 /* SettingsViewController.m in Sources */,
+				76362CD31AE852F200A132E6 /* TestingViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -379,9 +412,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = FallApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 2;
 			};
 			name = Debug;
 		};
@@ -389,9 +424,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = FallApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 2;
 			};
 			name = Release;
 		};

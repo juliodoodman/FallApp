@@ -7,8 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "BLE_Framework/BLE.h"
 
-@interface ViewController : UIViewController
+@interface DashboardViewController : UIViewController <BLEDelegate>
+
+@property (strong, nonatomic) BLE *ble;
 
 
 @end
