@@ -12,6 +12,7 @@
 @interface DashboardViewController : UIViewController <BLEDelegate>
 
 @property (strong, nonatomic) BLE *ble;
+@property (weak, nonatomic) IBOutlet UISwitch *connectionSwitch;
 
 
 @end
