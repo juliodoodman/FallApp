@@ -83,4 +83,48 @@
     }
 }
 
+- (IBAction)connectToBluetooth:(UIButton *)sender
+{
+    if (ble.activePeripheral)
+        if (ble.activePeripheral.state == CBPeripheralStateConnected)
+        {
+            [[ble CM] cancelPeripheralConnection:[ble activePeripheral]];
+            [_btConnectionButton setTitle:@"Connect" forState:UIControlStateNormal];
+            return;
+        }
+    
+    if (ble.peripherals)
+        ble.peripherals = nil;
+    
+    [_btConnectionButton setEnabled:false];
+    [_btConnectionButton setTitle:@"Connecting..." forState:UIControlStateDisabled];
+    [ble findBLEPeripherals:2];
+    
+    [NSTimer scheduledTimerWithTimeInterval:(float)2.0 target:self selector:@selector(connectionTimer:) userInfo:nil repeats:NO];
+    
+    //[_connectionActivityIndicator startAnimating];
+}
+- (void) connectionTimer:(NSTimer *)timer
+{
+    [_btConnectionButton setEnabled:true];
+    [_btConnectionButton setTitle:@"Disconnect" forState:UIControlStateNormal];
+    
+    if (ble.peripherals.count > 0)
+    {
+        [ble connectPeripheral:[ble.peripherals objectAtIndex:0]];
+    }
+    else
+    {
+        [_btConnectionButton setTitle:@"Connect" forState:UIControlStateNormal];
+        //[_connectionActivityIndicator stopAnimating];
+    }
+}
+
+- (IBAction)fallDetection:(UISwitch *)sender
+{
+}
+
+- (IBAction)alarmSwitch:(UISwitch *)sender
+{
+}
 @end

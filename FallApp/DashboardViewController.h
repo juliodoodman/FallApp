@@ -16,7 +16,13 @@
 @interface DashboardViewController : UIViewController <BLEDelegate, AVAudioPlayerDelegate, MFMailComposeViewControllerDelegate>
 
 @property (strong, nonatomic) BLE *ble;
-@property (weak, nonatomic) IBOutlet UISwitch *connectionSwitch;
+@property (weak, nonatomic) IBOutlet UIButton *btConnectionButton;
+- (IBAction)connectToBluetooth:(UIButton *)sender;
+
+
+- (IBAction)fallDetection:(UISwitch *)sender;
+- (IBAction)alarmSwitch:(UISwitch *)sender;
+
 
 -(void) showEmail;
 -(void) playAudio;
