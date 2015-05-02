@@ -1,21 +1,20 @@
 //
-//  User.m
+//  EmergencyContact.m
 //  FallApp
 //
 //  Created by Julio Morera on 5/2/15.
 //  Copyright (c) 2015 Julio Morera. All rights reserved.
 //
 
+#import "EmergencyContact.h"
 #import "User.h"
-#import "Fall.h"
-// #import "NSManagedObject.h"
 
 
-@implementation User
+@implementation EmergencyContact
 
+@dynamic emailAddress;
 @dynamic firstName;
 @dynamic lastName;
-@dynamic emergencyContacts;
-@dynamic falls;
+@dynamic user;
 
 @end

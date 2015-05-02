@@ -10,7 +10,6 @@
 		3BCCF3131AF5525A0078E8B2 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3BCCF3121AF5525A0078E8B2 /* MessageUI.framework */; };
 		3BCCF3151AF552630078E8B2 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3BCCF3141AF552630078E8B2 /* AVFoundation.framework */; };
 		3BCCF3171AF554D20078E8B2 /* BLE.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BCCF3161AF554D20078E8B2 /* BLE.m */; };
-		3BCCF31A1AF55AA20078E8B2 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BCCF3191AF55AA20078E8B2 /* User.m */; };
 		76362CC11AE8456500A132E6 /* BLE_Framework in Resources */ = {isa = PBXBuildFile; fileRef = 76362CC01AE8456500A132E6 /* BLE_Framework */; };
 		76362CC41AE8460D00A132E6 /* BLE_Framework in Sources */ = {isa = PBXBuildFile; fileRef = 76362CC01AE8456500A132E6 /* BLE_Framework */; };
 		76362CC71AE8486F00A132E6 /* LoginScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 76362CC61AE8486F00A132E6 /* LoginScreenViewController.m */; };
@@ -18,6 +17,9 @@
 		76362CCD1AE84D4000A132E6 /* SignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 76362CCC1AE84D4000A132E6 /* SignUpViewController.m */; };
 		76362CD01AE84F7200A132E6 /* HowToViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 76362CCF1AE84F7200A132E6 /* HowToViewController.m */; };
 		76362CD31AE852F200A132E6 /* TestingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 76362CD21AE852F200A132E6 /* TestingViewController.m */; };
+		766EBDFF1AF56A1500627901 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 766EBDFE1AF56A1500627901 /* User.m */; };
+		766EBE021AF56A1600627901 /* EmergencyContact.m in Sources */ = {isa = PBXBuildFile; fileRef = 766EBE011AF56A1600627901 /* EmergencyContact.m */; };
+		766EBE051AF56A1600627901 /* Fall.m in Sources */ = {isa = PBXBuildFile; fileRef = 766EBE041AF56A1600627901 /* Fall.m */; };
 		76D383C11AE5B54200359774 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 76D383C01AE5B54200359774 /* main.m */; };
 		76D383C41AE5B54200359774 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 76D383C31AE5B54200359774 /* AppDelegate.m */; };
 		76D383C71AE5B54200359774 /* FallApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 76D383C51AE5B54200359774 /* FallApp.xcdatamodeld */; };
@@ -47,8 +49,6 @@
 		3BCCF3121AF5525A0078E8B2 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		3BCCF3141AF552630078E8B2 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		3BCCF3161AF554D20078E8B2 /* BLE.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = BLE.m; path = FallApp/BLE_Framework/BLE.m; sourceTree = "<group>"; };
-		3BCCF3181AF55AA20078E8B2 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = User.h; path = ../User.h; sourceTree = "<group>"; };
-		3BCCF3191AF55AA20078E8B2 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = User.m; path = ../User.m; sourceTree = "<group>"; };
 		76362CC01AE8456500A132E6 /* BLE_Framework */ = {isa = PBXFileReference; lastKnownFileType = folder; name = BLE_Framework; path = FallApp/BLE_Framework; sourceTree = "<group>"; };
 		76362CC51AE8486F00A132E6 /* LoginScreenViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginScreenViewController.h; sourceTree = "<group>"; };
 		76362CC61AE8486F00A132E6 /* LoginScreenViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginScreenViewController.m; sourceTree = "<group>"; };
@@ -60,6 +60,12 @@
 		76362CCF1AE84F7200A132E6 /* HowToViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HowToViewController.m; sourceTree = "<group>"; };
 		76362CD11AE852F200A132E6 /* TestingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestingViewController.h; sourceTree = "<group>"; };
 		76362CD21AE852F200A132E6 /* TestingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestingViewController.m; sourceTree = "<group>"; };
+		766EBDFD1AF56A1500627901 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
+		766EBDFE1AF56A1500627901 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
+		766EBE001AF56A1600627901 /* EmergencyContact.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EmergencyContact.h; sourceTree = "<group>"; };
+		766EBE011AF56A1600627901 /* EmergencyContact.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EmergencyContact.m; sourceTree = "<group>"; };
+		766EBE031AF56A1600627901 /* Fall.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Fall.h; sourceTree = "<group>"; };
+		766EBE041AF56A1600627901 /* Fall.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Fall.m; sourceTree = "<group>"; };
 		76D383BB1AE5B54200359774 /* FallApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FallApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		76D383BF1AE5B54200359774 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		76D383C01AE5B54200359774 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -110,6 +116,12 @@
 		76D383B21AE5B54100359774 = {
 			isa = PBXGroup;
 			children = (
+				766EBE031AF56A1600627901 /* Fall.h */,
+				766EBE041AF56A1600627901 /* Fall.m */,
+				766EBE001AF56A1600627901 /* EmergencyContact.h */,
+				766EBE011AF56A1600627901 /* EmergencyContact.m */,
+				766EBDFD1AF56A1500627901 /* User.h */,
+				766EBDFE1AF56A1500627901 /* User.m */,
 				3BCCF3161AF554D20078E8B2 /* BLE.m */,
 				3BCCF3141AF552630078E8B2 /* AVFoundation.framework */,
 				3BCCF3121AF5525A0078E8B2 /* MessageUI.framework */,
@@ -152,8 +164,6 @@
 				76362CCF1AE84F7200A132E6 /* HowToViewController.m */,
 				76362CD11AE852F200A132E6 /* TestingViewController.h */,
 				76362CD21AE852F200A132E6 /* TestingViewController.m */,
-				3BCCF3181AF55AA20078E8B2 /* User.h */,
-				3BCCF3191AF55AA20078E8B2 /* User.m */,
 				76D383CB1AE5B54200359774 /* Main.storyboard */,
 				76D383CE1AE5B54200359774 /* Images.xcassets */,
 				76D383D01AE5B54200359774 /* LaunchScreen.xib */,
@@ -291,15 +301,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				766EBE051AF56A1600627901 /* Fall.m in Sources */,
 				3BCCF3171AF554D20078E8B2 /* BLE.m in Sources */,
 				76362CC41AE8460D00A132E6 /* BLE_Framework in Sources */,
 				76D383C41AE5B54200359774 /* AppDelegate.m in Sources */,
+				766EBE021AF56A1600627901 /* EmergencyContact.m in Sources */,
 				76362CC71AE8486F00A132E6 /* LoginScreenViewController.m in Sources */,
 				76D383C71AE5B54200359774 /* FallApp.xcdatamodeld in Sources */,
 				76D383CA1AE5B54200359774 /* DashboardViewController.m in Sources */,
 				76362CD01AE84F7200A132E6 /* HowToViewController.m in Sources */,
+				766EBDFF1AF56A1500627901 /* User.m in Sources */,
 				76D383C11AE5B54200359774 /* main.m in Sources */,
-				3BCCF31A1AF55AA20078E8B2 /* User.m in Sources */,
 				76362CCD1AE84D4000A132E6 /* SignUpViewController.m in Sources */,
 				76362CCA1AE84BA000A132E6 /* SettingsViewController.m in Sources */,
 				76362CD31AE852F200A132E6 /* TestingViewController.m in Sources */,

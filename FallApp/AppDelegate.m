@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "User.h"
+#import "Fall.h"
 
 @interface AppDelegate ()
 //Test Commit 2
@@ -45,13 +46,24 @@
     [self saveContext];
 }
 
--(void)makeNewUserWithFirstName:(NSString *)firstName andLastName:(NSString *)lastName inContext:(NSManagedObjectContext*)context
+- (void)makeNewUserWithFirstName:(NSString *)firstName andLastName:(NSString *)lastName inContext:(NSManagedObjectContext *)context
 {
     User *thisUser = [NSEntityDescription insertNewObjectForEntityForName:@"User" inManagedObjectContext:context];
     [thisUser setFirstName:firstName];
     [thisUser setLastName:lastName];
     
 }
+
+- (void)makeNewFallWithXAccel:(NSNumber *)xAccel andYAccel:(NSNumber *)yAccel andZAccel:(NSNumber *)zAccel andTime:(NSDate *)time andNotes:(NSString *)notes inContext:(NSManagedObjectContext *) context
+{
+    Fall *thisFall = [NSEntityDescription insertNewObjectForEntityForName:@"Fall" inManagedObjectContext:context];
+    [thisFall setXAccel:xAccel];
+    [thisFall setYAccel:yAccel];
+    [thisFall setZAccel:zAccel];
+    [thisFall setTime:time];
+    [thisFall setNotes:notes];
+}
+
 #pragma mark - Core Data stack
 
 @synthesize managedObjectContext = _managedObjectContext;
