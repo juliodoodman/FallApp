@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3BCCF3131AF5525A0078E8B2 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3BCCF3121AF5525A0078E8B2 /* MessageUI.framework */; };
+		3BCCF3151AF552630078E8B2 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3BCCF3141AF552630078E8B2 /* AVFoundation.framework */; };
+		3BCCF3171AF554D20078E8B2 /* BLE.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BCCF3161AF554D20078E8B2 /* BLE.m */; };
 		76362CC11AE8456500A132E6 /* BLE_Framework in Resources */ = {isa = PBXBuildFile; fileRef = 76362CC01AE8456500A132E6 /* BLE_Framework */; };
 		76362CC41AE8460D00A132E6 /* BLE_Framework in Sources */ = {isa = PBXBuildFile; fileRef = 76362CC01AE8456500A132E6 /* BLE_Framework */; };
 		76362CC71AE8486F00A132E6 /* LoginScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 76362CC61AE8486F00A132E6 /* LoginScreenViewController.m */; };
@@ -40,6 +43,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3BCCF3121AF5525A0078E8B2 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
+		3BCCF3141AF552630078E8B2 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		3BCCF3161AF554D20078E8B2 /* BLE.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = BLE.m; path = FallApp/BLE_Framework/BLE.m; sourceTree = "<group>"; };
 		76362CC01AE8456500A132E6 /* BLE_Framework */ = {isa = PBXFileReference; lastKnownFileType = folder; name = BLE_Framework; path = FallApp/BLE_Framework; sourceTree = "<group>"; };
 		76362CC51AE8486F00A132E6 /* LoginScreenViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginScreenViewController.h; sourceTree = "<group>"; };
 		76362CC61AE8486F00A132E6 /* LoginScreenViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginScreenViewController.m; sourceTree = "<group>"; };
@@ -78,6 +84,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3BCCF3151AF552630078E8B2 /* AVFoundation.framework in Frameworks */,
+				3BCCF3131AF5525A0078E8B2 /* MessageUI.framework in Frameworks */,
 				76D383F41AE83C5000359774 /* Foundation.framework in Frameworks */,
 				76D383F21AE83C4800359774 /* CoreGraphics.framework in Frameworks */,
 				76D383F01AE83C2E00359774 /* UIKit.framework in Frameworks */,
@@ -99,6 +107,9 @@
 		76D383B21AE5B54100359774 = {
 			isa = PBXGroup;
 			children = (
+				3BCCF3161AF554D20078E8B2 /* BLE.m */,
+				3BCCF3141AF552630078E8B2 /* AVFoundation.framework */,
+				3BCCF3121AF5525A0078E8B2 /* MessageUI.framework */,
 				76362CC01AE8456500A132E6 /* BLE_Framework */,
 				76D383F31AE83C5000359774 /* Foundation.framework */,
 				76D383F11AE83C4800359774 /* CoreGraphics.framework */,
@@ -275,6 +286,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3BCCF3171AF554D20078E8B2 /* BLE.m in Sources */,
 				76362CC41AE8460D00A132E6 /* BLE_Framework in Sources */,
 				76D383C41AE5B54200359774 /* AppDelegate.m in Sources */,
 				76362CC71AE8486F00A132E6 /* LoginScreenViewController.m in Sources */,

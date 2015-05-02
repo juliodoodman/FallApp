@@ -9,7 +9,7 @@
 #import "HowToViewController.h"
 
 @interface HowToViewController ()
-//Does this work?
+
 @end
 
 @implementation HowToViewController

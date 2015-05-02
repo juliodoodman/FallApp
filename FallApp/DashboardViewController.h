@@ -8,12 +8,17 @@
 
 #import <UIKit/UIKit.h>
 #import "BLE_Framework/BLE.h"
+#import <CoreBluetooth/CoreBluetooth.h>
+#import <MessageUI/MessageUI.h>
+#import <MessageUI/MFMailComposeViewController.h>
+#import <AVFoundation/AVFoundation.h>
 
-@interface DashboardViewController : UIViewController <BLEDelegate>
+@interface DashboardViewController : UIViewController <BLEDelegate, AVAudioPlayerDelegate, MFMailComposeViewControllerDelegate>
 
 @property (strong, nonatomic) BLE *ble;
 @property (weak, nonatomic) IBOutlet UISwitch *connectionSwitch;
 
-
+-(void) showEmail;
+-(void) playAudio;
 @end
 
