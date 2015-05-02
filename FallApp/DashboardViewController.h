@@ -12,12 +12,19 @@
 #import <CoreBluetooth/CoreBluetooth.h>
 #import <MessageUI/MessageUI.h>
 #import <MessageUI/MFMailComposeViewController.h>
+#import <CoreLocation/CoreLocation.h>
 #import <AVFoundation/AVFoundation.h>
 #import "Fall.h"
 
-@interface DashboardViewController : UIViewController <BLEDelegate, AVAudioPlayerDelegate, MFMailComposeViewControllerDelegate>
+@interface DashboardViewController : UIViewController <BLEDelegate, AVAudioPlayerDelegate, MFMailComposeViewControllerDelegate, CLLocationManagerDelegate>
 
 @property (strong, nonatomic) BLE *ble;
+
+@property (weak, nonatomic) NSString *latitude;
+@property (weak, nonatomic) NSString *longitude;
+@property (weak, nonatomic) NSString *address;
+
+
 @property (weak, nonatomic) IBOutlet UIButton *btConnectionButton;
 - (IBAction)connectToBluetooth:(UIButton *)sender;
 
