@@ -7,6 +7,7 @@
         <relationship name="user" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="emergencyContacts" inverseEntity="User" syncable="YES"/>
     </entity>
     <entity name="Fall" representedClassName="Fall" syncable="YES">
+        <attribute name="location" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="notes" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="time" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="xAccel" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
@@ -23,7 +24,7 @@
     </entity>
     <elements>
         <element name="EmergencyContact" positionX="-128" positionY="-477" width="128" height="103"/>
-        <element name="Fall" positionX="-459" positionY="-511" width="128" height="133"/>
+        <element name="Fall" positionX="-459" positionY="-511" width="128" height="150"/>
         <element name="User" positionX="-308" positionY="-571" width="128" height="103"/>
     </elements>
 </model>
