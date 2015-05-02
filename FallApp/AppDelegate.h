@@ -19,6 +19,7 @@
 
 - (void)saveContext;
 - (NSURL *)applicationDocumentsDirectory;
+-(void)makeNewUserWithFirstName:(NSString *)firstName andLastName:(NSString *)lastName andEmail:(NSString *)email inContext:(NSManagedObjectContext*)context;
 
 
 @end

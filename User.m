@@ -13,5 +13,6 @@
 
 @dynamic firstName;
 @dynamic lastName;
+@dynamic email;
 
 @end

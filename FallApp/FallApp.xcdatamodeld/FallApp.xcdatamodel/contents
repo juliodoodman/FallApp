@@ -13,11 +13,12 @@
         <attribute name="zAccel" optional="YES" attributeType="Binary" syncable="YES"/>
     </entity>
     <entity name="User" representedClassName="User" syncable="YES">
+        <attribute name="email" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="firstName" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="lastName" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <elements>
-        <element name="User" positionX="-279" positionY="-513" width="128" height="73"/>
+        <element name="User" positionX="-279" positionY="-513" width="128" height="88"/>
         <element name="Fall" positionX="-317" positionY="-376" width="128" height="118"/>
         <element name="EmergencyContact" positionX="-128" positionY="-477" width="128" height="88"/>
     </elements>

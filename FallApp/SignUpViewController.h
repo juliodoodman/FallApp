@@ -10,4 +10,10 @@
 
 @interface SignUpViewController : UIViewController
 
+@property (weak, nonatomic) IBOutlet UITextField *firstNameTF;
+@property (weak, nonatomic) IBOutlet UITextField *lastNameTF;
+@property (weak, nonatomic) IBOutlet UITextField *emailTF;
+
+- (IBAction)saveNewUser:(UIButton *)sender;
+
 @end
