@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "User.h"
 
 @interface AppDelegate ()
 
@@ -44,6 +45,13 @@
     [self saveContext];
 }
 
+-(void)makeNewUserWithFirstName:(NSString *)firstName andLastName:(NSString *)lastName inContext:(NSManagedObjectContext*)context
+{
+    User *thisUser = [NSEntityDescription insertNewObjectForEntityForName:@"User" inManagedObjectContext:context];
+    [thisUser setFirstName:firstName];
+    [thisUser setLastName:lastName];
+    
+}
 #pragma mark - Core Data stack
 
 @synthesize managedObjectContext = _managedObjectContext;
