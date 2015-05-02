@@ -1,7 +1,24 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="7549" systemVersion="14D136" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
-    <entity name="User" syncable="YES"/>
+    <entity name="EmergencyContact" syncable="YES">
+        <attribute name="emailAddress" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="firstName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="lastName" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="Fall" syncable="YES">
+        <attribute name="notes" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="time" optional="YES" attributeType="Binary" syncable="YES"/>
+        <attribute name="xAccel" optional="YES" attributeType="Binary" syncable="YES"/>
+        <attribute name="yAccel" optional="YES" attributeType="Binary" syncable="YES"/>
+        <attribute name="zAccel" optional="YES" attributeType="Binary" syncable="YES"/>
+    </entity>
+    <entity name="User" syncable="YES">
+        <attribute name="firstName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="lastName" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
     <elements>
-        <element name="User" positionX="-63" positionY="-18" width="128" height="43"/>
+        <element name="User" positionX="-279" positionY="-513" width="128" height="73"/>
+        <element name="Fall" positionX="-317" positionY="-376" width="128" height="118"/>
+        <element name="EmergencyContact" positionX="-128" positionY="-477" width="128" height="88"/>
     </elements>
 </model>
