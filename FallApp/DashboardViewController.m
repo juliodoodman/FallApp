@@ -55,7 +55,10 @@
 -(void) bleDidReceiveData:(unsigned char *)data length:(int)length
 {
     NSLog(@"Length: %d", length);
-    
+    UInt16 x = 0;
+    UInt16 y = 0;
+    UInt16 z = 0;
+    UInt16 o = 0;
     
     // parse data, all commands are in 3-byte
     for (int i = 0; i < length; i+=3)
@@ -63,23 +66,37 @@
         if (data[i] == 0x0A) //X-pin
         {
             NSLog(@"X-pin value");
-            NSLog(@"0x%02X, 0x%02X, 0x%02X", data[i], data[i+1], data[i+2]);
+            //NSLog(@"0x%02X, 0x%02X, 0x%02X", data[i], data[i+1], data[i+2]);
+            x = data[i+2];
+            NSLog(@"%d", x);
         }
         else if (data[i] == 0x0B) //Y-pin
         {
             NSLog(@"Y-pin value");
-            NSLog(@"0x%02X, 0x%02X, 0x%02X", data[i], data[i+1], data[i+2]);
+            //NSLog(@"0x%02X, 0x%02X, 0x%02X", data[i], data[i+1], data[i+2]);
+            y = data[i+2];
+            NSLog(@"%d", y);
         }
         else if (data[i] == 0x0C) //Z-pin
         {
             NSLog(@"Z-pin value");
-            NSLog(@"0x%02X, 0x%02X, 0x%02X", data[i], data[i+1], data[i+2]);
+            //NSLog(@"0x%02X, 0x%02X, 0x%02X", data[i], data[i+1], data[i+2]);
+            z = data[i+2];
+            NSLog(@"%d", z);
         }
         else if (data[i] == 0x0D) //O-pin (orientation)?
         {
             NSLog(@"O-pin value");
-            NSLog(@"0x%02X, 0x%02X, 0x%02X", data[i], data[i+1], data[i+2]);
+            //NSLog(@"0x%02X, 0x%02X, 0x%02X", data[i], data[i+1], data[i+2]);
+            o = data[i+2];
+            NSLog(@"%d", o);
         }
+
+        if (x^2+y^2+z^2 > 100)
+        {
+            NSLog(@"Fall detected!");
+        }
+            
     }
 }
 

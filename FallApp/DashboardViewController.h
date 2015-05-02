@@ -12,6 +12,7 @@
 #import <MessageUI/MessageUI.h>
 #import <MessageUI/MFMailComposeViewController.h>
 #import <AVFoundation/AVFoundation.h>
+#import "Fall.h"
 
 @interface DashboardViewController : UIViewController <BLEDelegate, AVAudioPlayerDelegate, MFMailComposeViewControllerDelegate>
 
