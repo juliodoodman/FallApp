@@ -24,6 +24,7 @@
 - (IBAction)fallDetection:(UISwitch *)sender;
 - (IBAction)alarmSwitch:(UISwitch *)sender;
 
+- (IBAction)testEmail:(UIButton *)sender;
 
 -(void) showEmail;
 -(void) playAudio;
