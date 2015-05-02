@@ -15,6 +15,7 @@
         <relationship name="user" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="falls" inverseEntity="User" syncable="YES"/>
     </entity>
     <entity name="User" representedClassName="User" syncable="YES">
+        <attribute name="email" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="firstName" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="lastName" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="emergencyContacts" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="EmergencyContact" inverseName="user" inverseEntity="EmergencyContact" syncable="YES"/>

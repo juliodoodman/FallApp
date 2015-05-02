@@ -7,6 +7,7 @@
 //
 
 #import "SignUpViewController.h"
+#import "AppDelegate.h"
 
 @interface SignUpViewController ()
 
@@ -14,12 +15,14 @@
 
 @implementation SignUpViewController
 
-- (void)viewDidLoad {
+- (void)viewDidLoad
+{
     [super viewDidLoad];
     // Do any additional setup after loading the view.
 }
 
-- (void)didReceiveMemoryWarning {
+- (void)didReceiveMemoryWarning
+{
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
@@ -34,4 +37,13 @@
 }
 */
 
+- (IBAction)saveNewUser:(UIButton *)sender
+{
+    UIApplication *myApp = [UIApplication sharedApplication];
+    AppDelegate *myAppDelegate  = [myApp delegate];
+
+    //Setting the object
+    
+    [myAppDelegate makeNewUserWithFirstName:_firstNameTF.text andLastName:_lastNameTF.text andEmail:_emailTF.text inContext:myAppDelegate.managedObjectContext];
+}
 @end

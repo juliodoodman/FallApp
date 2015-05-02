@@ -51,6 +51,7 @@
     User *thisUser = [NSEntityDescription insertNewObjectForEntityForName:@"User" inManagedObjectContext:context];
     [thisUser setFirstName:firstName];
     [thisUser setLastName:lastName];
+    [thisUser setEmail:email];
     
 }
 
