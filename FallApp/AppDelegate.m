@@ -46,7 +46,7 @@
     [self saveContext];
 }
 
-- (void)makeNewUserWithFirstName:(NSString *)firstName andLastName:(NSString *)lastName inContext:(NSManagedObjectContext *)context
+- (void)makeNewUserWithFirstName:(NSString *)firstName andLastName:(NSString *)lastName andEmail:(NSString *)email inContext:(NSManagedObjectContext*)context
 {
     User *thisUser = [NSEntityDescription insertNewObjectForEntityForName:@"User" inManagedObjectContext:context];
     [thisUser setFirstName:firstName];

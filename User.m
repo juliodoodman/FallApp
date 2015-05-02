@@ -17,5 +17,6 @@
 @dynamic lastName;
 @dynamic emergencyContacts;
 @dynamic falls;
+@dynamic email;
 
 @end

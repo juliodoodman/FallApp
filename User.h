@@ -17,6 +17,8 @@
 @property (nonatomic, retain) NSString * lastName;
 @property (nonatomic, retain) NSSet *emergencyContacts;
 @property (nonatomic, retain) NSSet *falls;
+@property (nonatomic, retain) NSString * email;
+
 @end
 
 @interface User (CoreDataGeneratedAccessors)
