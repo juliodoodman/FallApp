@@ -181,7 +181,7 @@ CLPlacemark *placemark;
     
     
     //Set Email Variables
-    NSString *emailTitle = @"Great Photo and Doc";
+    NSString *emailTitle = @"Julio, Does this work?";
     NSString *messageBody = @"Hey, check this out!";
     NSArray *toRecipents = [NSArray arrayWithObject:@"support@appcoda.com"];
     
