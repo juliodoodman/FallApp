@@ -19,7 +19,7 @@
 		76362CD31AE852F200A132E6 /* TestingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 76362CD21AE852F200A132E6 /* TestingViewController.m */; };
 		766EBDFF1AF56A1500627901 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 766EBDFE1AF56A1500627901 /* User.m */; };
 		766EBE021AF56A1600627901 /* EmergencyContact.m in Sources */ = {isa = PBXBuildFile; fileRef = 766EBE011AF56A1600627901 /* EmergencyContact.m */; };
-		766EBE051AF56A1600627901 /* Fall.m in Sources */ = {isa = PBXBuildFile; fileRef = 766EBE041AF56A1600627901 /* Fall.m */; };
+		766EBE081AF58E8700627901 /* Fall.m in Sources */ = {isa = PBXBuildFile; fileRef = 766EBE071AF58E8700627901 /* Fall.m */; };
 		76D383C11AE5B54200359774 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 76D383C01AE5B54200359774 /* main.m */; };
 		76D383C41AE5B54200359774 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 76D383C31AE5B54200359774 /* AppDelegate.m */; };
 		76D383C71AE5B54200359774 /* FallApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 76D383C51AE5B54200359774 /* FallApp.xcdatamodeld */; };
@@ -64,8 +64,8 @@
 		766EBDFE1AF56A1500627901 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
 		766EBE001AF56A1600627901 /* EmergencyContact.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EmergencyContact.h; sourceTree = "<group>"; };
 		766EBE011AF56A1600627901 /* EmergencyContact.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EmergencyContact.m; sourceTree = "<group>"; };
-		766EBE031AF56A1600627901 /* Fall.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Fall.h; sourceTree = "<group>"; };
-		766EBE041AF56A1600627901 /* Fall.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Fall.m; sourceTree = "<group>"; };
+		766EBE061AF58E8700627901 /* Fall.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Fall.h; sourceTree = "<group>"; };
+		766EBE071AF58E8700627901 /* Fall.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Fall.m; sourceTree = "<group>"; };
 		76D383BB1AE5B54200359774 /* FallApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FallApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		76D383BF1AE5B54200359774 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		76D383C01AE5B54200359774 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -116,8 +116,8 @@
 		76D383B21AE5B54100359774 = {
 			isa = PBXGroup;
 			children = (
-				766EBE031AF56A1600627901 /* Fall.h */,
-				766EBE041AF56A1600627901 /* Fall.m */,
+				766EBE061AF58E8700627901 /* Fall.h */,
+				766EBE071AF58E8700627901 /* Fall.m */,
 				766EBE001AF56A1600627901 /* EmergencyContact.h */,
 				766EBE011AF56A1600627901 /* EmergencyContact.m */,
 				766EBDFD1AF56A1500627901 /* User.h */,
@@ -301,7 +301,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				766EBE051AF56A1600627901 /* Fall.m in Sources */,
 				3BCCF3171AF554D20078E8B2 /* BLE.m in Sources */,
 				76362CC41AE8460D00A132E6 /* BLE_Framework in Sources */,
 				76D383C41AE5B54200359774 /* AppDelegate.m in Sources */,
@@ -310,6 +309,7 @@
 				76D383C71AE5B54200359774 /* FallApp.xcdatamodeld in Sources */,
 				76D383CA1AE5B54200359774 /* DashboardViewController.m in Sources */,
 				76362CD01AE84F7200A132E6 /* HowToViewController.m in Sources */,
+				766EBE081AF58E8700627901 /* Fall.m in Sources */,
 				766EBDFF1AF56A1500627901 /* User.m in Sources */,
 				76D383C11AE5B54200359774 /* main.m in Sources */,
 				76362CCD1AE84D4000A132E6 /* SignUpViewController.m in Sources */,

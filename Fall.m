@@ -12,6 +12,7 @@
 
 @implementation Fall
 
+@dynamic location;
 @dynamic notes;
 @dynamic time;
 @dynamic xAccel;

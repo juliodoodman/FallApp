@@ -13,6 +13,7 @@
 
 @interface Fall : NSManagedObject
 
+@property (nonatomic, retain) NSString * location;
 @property (nonatomic, retain) NSString * notes;
 @property (nonatomic, retain) NSDate * time;
 @property (nonatomic, retain) NSNumber * xAccel;

@@ -55,7 +55,7 @@
     
 }
 
-- (void)makeNewFallWithXAccel:(NSNumber *)xAccel andYAccel:(NSNumber *)yAccel andZAccel:(NSNumber *)zAccel andTime:(NSDate *)time andNotes:(NSString *)notes inContext:(NSManagedObjectContext *) context
+- (void)makeNewFallWithXAccel:(NSNumber *)xAccel andYAccel:(NSNumber *)yAccel andZAccel:(NSNumber *)zAccel andTime:(NSDate *)time andNotes:(NSString *)notes andLocation:(NSString *)location inContext:(NSManagedObjectContext *) context
 {
     Fall *thisFall = [NSEntityDescription insertNewObjectForEntityForName:@"Fall" inManagedObjectContext:context];
     [thisFall setXAccel:xAccel];
@@ -63,6 +63,7 @@
     [thisFall setZAccel:zAccel];
     [thisFall setTime:time];
     [thisFall setNotes:notes];
+    [thisFall setLocation:location];
 }
 
 #pragma mark - Core Data stack

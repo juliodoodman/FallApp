@@ -7,6 +7,7 @@
 //
 
 #import "DashboardViewController.h"
+#import "AppDelegate.h"
 
 @interface DashboardViewController ()
 
@@ -14,6 +15,9 @@
 
 @implementation DashboardViewController
 @synthesize ble;
+
+BOOL fallDetected = FALSE;
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -92,11 +96,17 @@
             NSLog(@"%d", o);
         }
 
-        if (x^2+y^2+z^2 > 100)
+        if (x^2+y^2+z^2 > 100 && fallDetected == FALSE)
         {
             NSLog(@"Fall detected!");
-        }
+            fallDetected = TRUE;
+            UIApplication *myApp = [UIApplication sharedApplication];
+            AppDelegate *myAppDelegate  = [myApp delegate];
             
+            [myAppDelegate makeNewFallWithXAccel:[NSNumber numberWithInt:x] andYAccel:[NSNumber numberWithInt:y] andZAccel:[NSNumber numberWithInt:z] andTime:[NSDate date] andNotes:@"Notes" andLocation:@"location" inContext:myAppDelegate.managedObjectContext];
+            [self showEmail];
+        }
+        
     }
 }
 

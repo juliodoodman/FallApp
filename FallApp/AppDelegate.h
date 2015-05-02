@@ -22,10 +22,10 @@
 
 - (void)saveContext;
 - (NSURL *)applicationDocumentsDirectory;
--(void)makeNewUserWithFirstName:(NSString *)firstName andLastName:(NSString *)lastName andEmail:(NSString *)email inContext:(NSManagedObjectContext*)context;
 
-- (void)makeNewUserWithFirstName:(NSString *)firstName andLastName:(NSString *)lastName inContext:(NSManagedObjectContext *)context;
-- (void)makeNewFallWithXAccel:(NSNumber *)xAccel andYAccel:(NSNumber *)yAccel andZAccel:(NSNumber *)zAccel andTime:(NSDate *)time andNotes:(NSString *)notes inContext:(NSManagedObjectContext *) context;
+- (void)makeNewUserWithFirstName:(NSString *)firstName andLastName:(NSString *)lastName andEmail:(NSString *)email inContext:(NSManagedObjectContext*)context;
+
+- (void)makeNewFallWithXAccel:(NSNumber *)xAccel andYAccel:(NSNumber *)yAccel andZAccel:(NSNumber *)zAccel andTime:(NSDate *)time andNotes:(NSString *)notes andLocation:(NSString *)location inContext:(NSManagedObjectContext *) context;
 
 @end
 

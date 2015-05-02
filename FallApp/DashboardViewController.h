@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "BLE_Framework/BLE.h"
+#import "AppDelegate.h"
 #import <CoreBluetooth/CoreBluetooth.h>
 #import <MessageUI/MessageUI.h>
 #import <MessageUI/MFMailComposeViewController.h>
