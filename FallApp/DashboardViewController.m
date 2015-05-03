@@ -13,6 +13,8 @@
 @end
 
 @implementation DashboardViewController
+AVAudioPlayer *theAudio;
+
 @synthesize ble;
 CLLocationManager *manager;
 CLGeocoder *geocoder;
@@ -27,6 +29,8 @@ CLPlacemark *placemark;
     
     manager = [[CLLocationManager alloc] init];
     geocoder = [[CLGeocoder alloc] init];
+    
+    
     
 }
 
@@ -156,12 +160,18 @@ CLPlacemark *placemark;
     [self showEmail];
 }
 
+- (IBAction)testSound:(UIButton *)sender
+{
+    [self playAudio];
+}
+
 - (void) playAudio
 {
     NSString *path = [[NSBundle mainBundle] pathForResource:@"alarm" ofType:@"mp3"];
     NSURL *soundURL = [NSURL fileURLWithPath:path];
-    AVAudioPlayer *theAudio;
-    //theAudio  = [[[AVAudioPlayer alloc] initWithContentsOfURL:soundURL error:nil];
+    NSError *error;
+    theAudio  = [[AVAudioPlayer alloc] initWithContentsOfURL:soundURL error:&error];
+    theAudio.volume=1.0;
     [theAudio play];
     
 }

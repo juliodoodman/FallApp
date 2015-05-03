@@ -32,6 +32,7 @@
 - (IBAction)alarmSwitch:(UISwitch *)sender;
 
 - (IBAction)testEmail:(UIButton *)sender;
+- (IBAction)testSound:(UIButton *)sender;
 
 -(void) showEmail;
 -(void) playAudio;

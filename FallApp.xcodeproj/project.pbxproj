@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3B184FD71AF6CFCD001DF4CE /* alarm.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 3B184FD61AF6CFCD001DF4CE /* alarm.mp3 */; };
 		3BCCF3131AF5525A0078E8B2 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3BCCF3121AF5525A0078E8B2 /* MessageUI.framework */; };
 		3BCCF3151AF552630078E8B2 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3BCCF3141AF552630078E8B2 /* AVFoundation.framework */; };
 		3BCCF3171AF554D20078E8B2 /* BLE.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BCCF3161AF554D20078E8B2 /* BLE.m */; };
@@ -46,6 +47,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3B184FD61AF6CFCD001DF4CE /* alarm.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = alarm.mp3; path = ../../alarm.mp3; sourceTree = "<group>"; };
 		3BCCF3121AF5525A0078E8B2 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		3BCCF3141AF552630078E8B2 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		3BCCF3161AF554D20078E8B2 /* BLE.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = BLE.m; path = FallApp/BLE_Framework/BLE.m; sourceTree = "<group>"; };
@@ -166,6 +168,7 @@
 				76362CD21AE852F200A132E6 /* TestingViewController.m */,
 				76D383CB1AE5B54200359774 /* Main.storyboard */,
 				76D383CE1AE5B54200359774 /* Images.xcassets */,
+				3B184FD61AF6CFCD001DF4CE /* alarm.mp3 */,
 				76D383D01AE5B54200359774 /* LaunchScreen.xib */,
 				76D383C51AE5B54200359774 /* FallApp.xcdatamodeld */,
 				76D383BE1AE5B54200359774 /* Supporting Files */,
@@ -284,6 +287,7 @@
 				76362CC11AE8456500A132E6 /* BLE_Framework in Resources */,
 				76D383D21AE5B54200359774 /* LaunchScreen.xib in Resources */,
 				76D383CF1AE5B54200359774 /* Images.xcassets in Resources */,
+				3B184FD71AF6CFCD001DF4CE /* alarm.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

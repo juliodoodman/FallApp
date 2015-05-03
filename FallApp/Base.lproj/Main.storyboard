@@ -206,6 +206,15 @@
                                     <action selector="testEmail:" destination="BYZ-38-t0r" eventType="touchUpInside" id="hNi-Dx-MvG"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wO0-pa-nFn">
+                                <rect key="frame" x="169" y="448" width="77" height="30"/>
+                                <state key="normal" title="Test Sound">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="testSound:" destination="BYZ-38-t0r" eventType="touchUpInside" id="LZK-DI-QC3"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
