@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "User.h"
+#import "EmergencyContact.h"
 #import "Fall.h"
 
 @interface AppDelegate ()
@@ -52,6 +53,14 @@
     [thisUser setFirstName:firstName];
     [thisUser setLastName:lastName];
     [thisUser setEmail:email];
+    
+}
+- (void)makeNewEmergencyContactWithFirstName:(NSString *)firstName andLastName:(NSString *)lastName andEmail:(NSString *)email inContext:(NSManagedObjectContext*)context
+{
+    EmergencyContact *thisEC = [NSEntityDescription insertNewObjectForEntityForName:@"EmergencyContact" inManagedObjectContext:context];
+    [thisEC setFirstName:firstName];
+    [thisEC setLastName:lastName];
+    [thisEC setEmail:email];
     
 }
 

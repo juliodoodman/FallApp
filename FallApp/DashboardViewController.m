@@ -167,12 +167,17 @@ CLPlacemark *placemark;
 
 - (void) playAudio
 {
+       
     NSString *path = [[NSBundle mainBundle] pathForResource:@"alarm" ofType:@"mp3"];
     NSURL *soundURL = [NSURL fileURLWithPath:path];
     NSError *error;
     theAudio  = [[AVAudioPlayer alloc] initWithContentsOfURL:soundURL error:&error];
     theAudio.volume=1.0;
+    theAudio.numberOfLoops=-1;          //this sets the alarm to be an infinite loop
     [theAudio play];
+    
+    //[theAudio pause]; //this command would pause the audio
+    //[theAudio stop];  //this command would stop the audio
     
 }
 

@@ -13,7 +13,7 @@
 
 @interface EmergencyContact : NSManagedObject
 
-@property (nonatomic, retain) NSString * emailAddress;
+@property (nonatomic, retain) NSString * email;
 @property (nonatomic, retain) NSString * firstName;
 @property (nonatomic, retain) NSString * lastName;
 @property (nonatomic, retain) User *user;
