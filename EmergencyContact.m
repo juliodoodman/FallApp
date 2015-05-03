@@ -12,7 +12,7 @@
 
 @implementation EmergencyContact
 
-@dynamic emailAddress;
+@dynamic email;
 @dynamic firstName;
 @dynamic lastName;
 @dynamic user;

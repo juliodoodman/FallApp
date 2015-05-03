@@ -14,6 +14,8 @@
 @end
 
 @implementation DashboardViewController
+AVAudioPlayer *theAudio;
+
 @synthesize ble;
 
 BOOL fallDetected = FALSE;
@@ -27,6 +29,8 @@ BOOL fallDetected = FALSE;
     
     manager = [[CLLocationManager alloc] init];
     geocoder = [[CLGeocoder alloc] init];
+    
+    
     
 }
 
@@ -162,13 +166,24 @@ BOOL fallDetected = FALSE;
     [self showEmail];
 }
 
+- (IBAction)testSound:(UIButton *)sender
+{
+    [self playAudio];
+}
+
 - (void) playAudio
 {
+       
     NSString *path = [[NSBundle mainBundle] pathForResource:@"alarm" ofType:@"mp3"];
     NSURL *soundURL = [NSURL fileURLWithPath:path];
-    AVAudioPlayer *theAudio;
-    //theAudio  = [[[AVAudioPlayer alloc] initWithContentsOfURL:soundURL error:nil];
+    NSError *error;
+    theAudio  = [[AVAudioPlayer alloc] initWithContentsOfURL:soundURL error:&error];
+    theAudio.volume=1.0;
+    theAudio.numberOfLoops=-1;          //this sets the alarm to be an infinite loop
     [theAudio play];
+    
+    //[theAudio pause]; //this command would pause the audio
+    //[theAudio stop];  //this command would stop the audio
     
 }
 
@@ -187,7 +202,7 @@ BOOL fallDetected = FALSE;
     
     
     //Set Email Variables
-    NSString *emailTitle = @"Great Photo and Doc";
+    NSString *emailTitle = @"Julio, Does this work?";
     NSString *messageBody = @"Hey, check this out!";
     NSArray *toRecipents = [NSArray arrayWithObject:@"support@appcoda.com"];
     
