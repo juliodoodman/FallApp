@@ -13,7 +13,9 @@
 @end
 
 @implementation SettingsViewController
+
 @synthesize contactdb;
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -24,6 +26,7 @@
         [self.emailTF setText:[self.contactdb valueForKey:@"email"]];
     }
 }
+
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
@@ -35,8 +38,10 @@
     
     [self.tableView reloadData];
 }
+
 - (NSManagedObjectContext *)managedObjectContext
-{ NSManagedObjectContext *context = nil;
+{
+    NSManagedObjectContext *context = nil;
     id delegate = [[UIApplication sharedApplication] delegate];
     if ([delegate performSelector:@selector(managedObjectContext)])
     {
@@ -56,17 +61,17 @@
     NSManagedObjectContext *context = [self managedObjectContext];
     if (self.contactdb)
     {
-        // Update existing device
+        // Update existing contact
         [self.contactdb setValue:self.nameTF.text forKey:@"name"];
         [self.contactdb setValue:self.emailTF.text forKey:@"email"];
     }
     else
     {
-        // Create a new device
-        NSManagedObject *newDevice = [NSEntityDescription
+        // Create a new contact
+        NSManagedObject *newContact = [NSEntityDescription
                                       insertNewObjectForEntityForName:@"EmergencyContact" inManagedObjectContext:context];
-        [newDevice setValue:self.nameTF.text forKey:@"name"];
-        [newDevice setValue:self.emailTF.text forKey:@"email"];
+        [newContact setValue:self.nameTF.text forKey:@"name"];
+        [newContact setValue:self.emailTF.text forKey:@"email"];
     }
     NSError *error = nil;
     // Save the object to persistent store
@@ -74,17 +79,19 @@
     {
     NSLog(@"Can't Save! %@ %@", error, [error localizedDescription]);
     }
+    NSManagedObjectContext *managedObjectContext = [self managedObjectContext];
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"EmergencyContact"];
+    self.contactarray = [[managedObjectContext executeFetchRequest:fetchRequest error:nil] mutableCopy];
+    
+    [self.tableView reloadData];
 //[self dismissViewControllerAnimated:YES completion:nil];
 }
-
 
 
 - (IBAction)btnCancel:(id)sender
 {
     [self dismissViewControllerAnimated:YES completion:nil];
 }
-
-
 
 #pragma mark - Table view data source
 
@@ -103,15 +110,29 @@
 {
     static NSString *CellIdentifier = @"cell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
-    
+    //UITapGestureRecognizer *cellTapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(didTapCell:)];
+    [self configureCell:cell atIndexPath:indexPath];
     // Configure the cell...
-    NSManagedObject *device = [self.contactarray objectAtIndex:indexPath.row];
-    [cell.detailTextLabel setText:[NSString stringWithFormat:@"%@ %@", [device valueForKey:@"name"], [device valueForKey:@"email"]]];
-    //[cell.detailTextLabel setText:[device valueForKey:@"phone"]];
-    [cell.textLabel setText:[NSString stringWithFormat:@"%@", [device valueForKey:@"name"]]];
+//    NSManagedObject *contact = [self.contactarray objectAtIndex:indexPath.row];
+//    [cell.detailTextLabel setText:[NSString stringWithFormat:@"%@ %@", [contact valueForKey:@"name"], [contact valueForKey:@"email"]]];
+//    //[cell.detailTextLabel setText:[device valueForKey:@"phone"]];
+//    [cell.textLabel setText:[NSString stringWithFormat:@"%@", [contact valueForKey:@"name"]]];
     return cell;
 }
 
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    self.nameTF.text = [[self.contactarray objectAtIndex:indexPath.row] valueForKey:@"name"];
+    self.emailTF.text = [[self.contactarray objectAtIndex:indexPath.row] valueForKey:@"email"];
+}
+
+- (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath
+{
+    // What goes in each cell.
+    NSManagedObject *contact = [self.contactarray objectAtIndex:indexPath.row];
+    [cell.detailTextLabel setText:[NSString stringWithFormat:@"%@ %@", [contact valueForKey:@"name"], [contact valueForKey:@"email"]]];
+    [cell.textLabel setText:[NSString stringWithFormat:@"%@", [contact valueForKey:@"name"]]];
+}
 
 // Override to support conditional editing of the table view.
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
@@ -120,14 +141,13 @@
     return YES;
 }
 
-
-
 // Override to support editing the table view.
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
     NSManagedObjectContext *context = [self managedObjectContext];
     
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
+    if (editingStyle == UITableViewCellEditingStyleDelete)
+    {
         // Delete object from database
         [context deleteObject:[self.contactarray objectAtIndex:indexPath.row]];
         
@@ -142,7 +162,5 @@
         [self.tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
     }
 }
-
-
 
 @end

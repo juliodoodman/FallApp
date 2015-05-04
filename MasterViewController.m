@@ -56,7 +56,8 @@
     return [sectionInfo numberOfObjects];
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
     
     // Configure the cell...
@@ -69,7 +70,6 @@
     // What goes in each cell.
     NSManagedObject *object = [self.fallFetchedResultsController objectAtIndexPath:indexPath];
     cell.textLabel.text = [[object valueForKey:@"time"] description];
-    //[cell.detailTextLabel setText:[NSString stringWithFormat:@"%@ %@ %@ %@, Level %@", [object valueForKey:@"alignment"], [object valueForKey:@"sex"], [object valueForKey:@"race"], [object valueForKey:@"characterClass"], [object valueForKey:@"level"]]];
 }
 
 /*
@@ -189,7 +189,7 @@
     return _managedObjectContext;
 }
 
-#pragma mark - Fetched results controller
+#pragma mark - Fetched results controllers
 
 - (NSFetchedResultsController *)fetchedResultsController
 {
