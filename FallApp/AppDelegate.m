@@ -21,8 +21,6 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     //Fill the Managed Object Context with Objects
-    [self makeNewEmergencyContactWithFirstName:@"Colin" andLastName:@"Barry" andEmail:@"cpbarry@asu.edu" inContext:self.managedObjectContext];
-    
     [self.managedObjectContext executeFetchRequest:self.fetchedResultsController.fetchRequest error:nil];
     
     [self.managedObjectContext executeFetchRequest:self.fallFetchedResultsController.fetchRequest error:nil];
@@ -77,11 +75,10 @@
     [thisUser setEmail:email];
     
 }
-- (void)makeNewEmergencyContactWithFirstName:(NSString *)firstName andLastName:(NSString *)lastName andEmail:(NSString *)email inContext:(NSManagedObjectContext*)context
+- (void)makeNewEmergencyContactWithtName:(NSString *)name andEmail:(NSString *)email inContext:(NSManagedObjectContext*)context
 {
     EmergencyContact *thisEC = [NSEntityDescription insertNewObjectForEntityForName:@"EmergencyContact" inManagedObjectContext:context];
-    [thisEC setFirstName:firstName];
-    [thisEC setLastName:lastName];
+    [thisEC setName:name];
     [thisEC setEmail:email];
     
 }
