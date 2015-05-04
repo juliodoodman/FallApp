@@ -10,6 +10,7 @@
 #import "FallViewController.h"
 #import <UIKit/UIKit.h>
 #import "AppDelegate.h"
+#import "Fall.h"
 
 
 @interface MasterViewController ()
@@ -27,6 +28,12 @@
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    
+//    if ([self.fallFetchedResultsController.fetchedObjects count] == 0)
+//    {
+//        [self makeNewFallWithXAccel:0 andYAccel:0 andZAccel:0 andTime:[NSDate date] andNotes:@"Fall" andLocation:@"Here" inContext:self.managedObjectContext];
+//        [self saveContext];
+//    }
 }
 
 - (void)didReceiveMemoryWarning {
@@ -39,13 +46,13 @@
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     // Return the number of sections.
-    return [[self.fetchedResultsController sections] count];
+    return [[self.fallFetchedResultsController sections] count];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    id <NSFetchedResultsSectionInfo> sectionInfo = [self.fetchedResultsController sections][section];
+    id <NSFetchedResultsSectionInfo> sectionInfo = [self.fallFetchedResultsController sections][section];
     return [sectionInfo numberOfObjects];
 }
 
@@ -60,7 +67,7 @@
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath
 {
     // What goes in each cell.
-    NSManagedObject *object = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    NSManagedObject *object = [self.fallFetchedResultsController objectAtIndexPath:indexPath];
     cell.textLabel.text = [[object valueForKey:@"time"] description];
     //[cell.detailTextLabel setText:[NSString stringWithFormat:@"%@ %@ %@ %@, Level %@", [object valueForKey:@"alignment"], [object valueForKey:@"sex"], [object valueForKey:@"race"], [object valueForKey:@"characterClass"], [object valueForKey:@"level"]]];
 }
@@ -98,6 +105,17 @@
     return YES;
 }
 */
+
+- (void)makeNewFallWithXAccel:(NSNumber *)xAccel andYAccel:(NSNumber *)yAccel andZAccel:(NSNumber *)zAccel andTime:(NSDate *)time andNotes:(NSString *)notes andLocation:(NSString *)location inContext:(NSManagedObjectContext *) context
+{
+    Fall *thisFall = [NSEntityDescription insertNewObjectForEntityForName:@"Fall" inManagedObjectContext:context];
+    [thisFall setXAccel:xAccel];
+    [thisFall setYAccel:yAccel];
+    [thisFall setZAccel:zAccel];
+    [thisFall setTime:time];
+    [thisFall setNotes:notes];
+    [thisFall setLocation:location];
+}
 
 #pragma mark - Core Data stack
 
@@ -212,6 +230,48 @@
     return _fetchedResultsController;
 }
 
+- (NSFetchedResultsController *)fallFetchedResultsController
+{
+    if (_fallFetchedResultsController != nil)
+    {
+        return _fallFetchedResultsController;
+    }
+    
+    NSFetchRequest *fallFetchRequest = [[NSFetchRequest alloc] init];
+    // Edit the entity name as appropriate.
+    NSEntityDescription *fallEntity = [NSEntityDescription entityForName:@"Fall" inManagedObjectContext:self.managedObjectContext];
+    
+    [fallFetchRequest setEntity:fallEntity];
+    
+    // Set the batch size to a suitable number.
+    [fallFetchRequest setFetchBatchSize:20];
+    
+    // Edit the sort key as appropriate.
+    NSSortDescriptor *fallSortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"time" ascending:NO];
+    NSArray *fallSortDescriptors = @[fallSortDescriptor];
+    
+    [fallFetchRequest setSortDescriptors:fallSortDescriptors];
+    
+    // Edit the section name key path and cache name if appropriate.
+    // nil for section name key path means "no sections".
+    NSFetchedResultsController *aFallFetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fallFetchRequest managedObjectContext:self.managedObjectContext sectionNameKeyPath:nil cacheName:@"AppDelegateCache"];
+    
+    aFallFetchedResultsController.delegate = self;
+    
+    self.fallFetchedResultsController = aFallFetchedResultsController;
+    
+    NSError *error = nil;
+    if (![self.fallFetchedResultsController performFetch:&error])
+    {
+        // Replace this implementation with code to handle the error appropriately.
+        // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
+        NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+        abort();
+    }
+    return _fallFetchedResultsController;
+}
+
+
 - (void)controllerWillChangeContent:(NSFetchedResultsController *)controller
 {
     [self.tableView beginUpdates];
@@ -222,14 +282,37 @@
     [self.tableView endUpdates];
 }
 
-/*
-#pragma mark - Navigation
+#pragma mark - Core Data Saving support
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (void)saveContext
+{
+    NSManagedObjectContext *managedObjectContext = self.managedObjectContext;
+    if (managedObjectContext != nil)
+    {
+        NSError *error = nil;
+        if ([managedObjectContext hasChanges] && ![managedObjectContext save:&error])
+        {
+            // Replace this implementation with code to handle the error appropriately.
+            // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
+            NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+            abort();
+        }
+    }
 }
-*/
+
+#pragma mark - Segues
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([[segue identifier] isEqualToString:@"showDetail"])
+    {
+        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+        NSManagedObject *object = [[self fetchedResultsController] objectAtIndexPath:indexPath];
+        FallViewController *controller = (FallViewController *)[[segue destinationViewController] topViewController];
+        [controller setDetailItem:object];
+        controller.navigationItem.leftBarButtonItem = self.splitViewController.displayModeButtonItem;
+        controller.navigationItem.leftItemsSupplementBackButton = YES;
+    }
+}
 
 @end

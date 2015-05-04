@@ -30,6 +30,7 @@
     if ([self.fallFetchedResultsController.fetchedObjects count] == 0)
     {
         [self makeNewFallWithXAccel:0 andYAccel:0 andZAccel:0 andTime:[NSDate date] andNotes:@"Fall" andLocation:@"Here" inContext:self.managedObjectContext];
+        [self saveContext];
     }
 
     // Override point for customization after application launch.

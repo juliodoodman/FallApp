@@ -25,10 +25,14 @@
     }
 }
 
-- (void)configureView {
+- (void)configureView
+{
     // Update the user interface for the detail item.
     if (self.detailItem)
     {
+        [self.dateLabel setText:[[_detailItem valueForKey:@"time"] description]];
+        self.locationLabel.text = [[self.detailItem valueForKey:@"location"] description];
+        self.notesLabel.text = [[self.detailItem valueForKey:@"notes"] description];
 //        self.nameLabel.text = [NSString stringWithFormat:@"%@ %@", [[self.detailItem valueForKey:@"firstName"] description], [[self.detailItem valueForKey:@"lastName"] description]];
 //        self.sexLabel.text = [[self.detailItem valueForKey:@"sex"] description];
 //        self.raceLabel.text = [[self.detailItem valueForKey:@"race"] description];
@@ -79,6 +83,7 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    [self configureView];
 }
 
 - (void)didReceiveMemoryWarning
