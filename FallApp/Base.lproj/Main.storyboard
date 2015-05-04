@@ -65,7 +65,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hd0-7h-NdV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-445" y="308"/>
+            <point key="canvasLocation" x="-547" y="-258"/>
         </scene>
         <!--How To View Controller-->
         <scene sceneID="TGE-54-ybw">
@@ -96,8 +96,8 @@
                                     <segue destination="BYZ-38-t0r" kind="show" id="YZe-GN-uUH"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Help Page" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z4P-E4-bx5">
-                                <rect key="frame" x="0.0" y="42" width="768" height="95"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Help Page" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z4P-E4-bx5">
+                                <rect key="frame" x="0.0" y="95" width="768" height="95"/>
                                 <color key="backgroundColor" red="0.99215686270000003" green="0.38823529410000002" blue="0.074509803920000006" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="95" id="PUA-Dx-Bu1"/>
@@ -123,7 +123,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qoP-tX-8jg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1294" y="-742"/>
+            <point key="canvasLocation" x="1298" y="-782"/>
         </scene>
         <!--Dashboard View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -418,7 +418,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="349" y="342"/>
+            <point key="canvasLocation" x="353" y="352"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Twe-IT-n04">
@@ -434,7 +434,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JVW-NW-yMg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1537" y="1116"/>
+            <point key="canvasLocation" x="1575" y="1550"/>
         </scene>
         <!--Fall View Controller-->
         <scene sceneID="mCF-zy-1y0">
@@ -453,6 +453,7 @@
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pWh-Se-xds">
                                 <rect key="frame" x="181" y="244" width="121" height="34"/>
+                                <color key="backgroundColor" red="0.99215686270000003" green="0.38823529410000002" blue="0.074509803920000006" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="121" id="OSb-Gb-yhR"/>
                                 </constraints>
@@ -462,6 +463,7 @@
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Time" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m6i-tk-ars">
                                 <rect key="frame" x="181" y="342" width="119" height="39"/>
+                                <color key="backgroundColor" red="0.99215686270000003" green="0.38823529410000002" blue="0.074509803920000006" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="119" id="gt1-LY-x5P"/>
                                     <constraint firstAttribute="height" constant="39" id="spa-7a-eAl"/>
@@ -472,6 +474,7 @@
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Location" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DGM-jr-1pW">
                                 <rect key="frame" x="181" y="423" width="145" height="39"/>
+                                <color key="backgroundColor" red="0.99215686270000003" green="0.38823529410000002" blue="0.074509803920000006" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="145" id="I0L-kF-s95"/>
                                     <constraint firstAttribute="height" constant="39" id="sKe-gS-oLv"/>
@@ -512,8 +515,9 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Notes" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5wS-y6-gqu">
-                                <rect key="frame" x="108" y="559" width="121" height="31"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Notes" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5wS-y6-gqu">
+                                <rect key="frame" x="108" y="559" width="121" height="38"/>
+                                <color key="backgroundColor" red="0.99215686270000003" green="0.38823529410000002" blue="0.074509803920000006" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="31" id="lQP-pC-4Cl"/>
                                     <constraint firstAttribute="width" constant="121" id="rhq-Zd-Eb4"/>
@@ -532,6 +536,16 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rUo-XM-Po5">
+                                <rect key="frame" x="332" y="887" width="105" height="73"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="30"/>
+                                <state key="normal" title="Home">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="BYZ-38-t0r" kind="show" id="cDn-rx-VWe"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -568,7 +582,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Aih-HN-5oa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2349" y="1139"/>
+            <point key="canvasLocation" x="2473" y="1361"/>
         </scene>
         <!--Recorded Falls-->
         <scene sceneID="4jl-DI-JsU">
@@ -627,7 +641,7 @@
                 </splitViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nDP-84-yV7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1099" y="348"/>
+            <point key="canvasLocation" x="1393" y="410"/>
         </scene>
         <!--Sign Up View Controller-->
         <scene sceneID="SFr-Ag-Xer">
@@ -893,6 +907,19 @@
                                     <action selector="saveData:" destination="dg7-iK-nrq" eventType="touchUpInside" id="OGC-f9-PXX"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qms-3a-ceG">
+                                <rect key="frame" x="546" y="800" width="180" height="180"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="180" id="aWZ-FO-Xdt"/>
+                                    <constraint firstAttribute="width" constant="180" id="giR-4N-UIv"/>
+                                </constraints>
+                                <state key="normal" title="How to use this App" image="help">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="a07-2b-kqX" kind="show" id="Iy8-rL-k9Y"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -959,8 +986,8 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="1g0-84-6Vd"/>
+        <segue reference="Iy8-rL-k9Y"/>
         <segue reference="MIJ-zf-ZiA"/>
         <segue reference="dI1-pF-2G7"/>
-        <segue reference="uzz-74-XC8"/>
     </inferredMetricsTieBreakers>
 </document>
