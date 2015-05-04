@@ -35,6 +35,7 @@ BOOL fallDetected = FALSE;
     
     manager = [[CLLocationManager alloc] init];
     geocoder = [[CLGeocoder alloc] init];
+    [self updateLocation];
     
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     NSString *currentUserFirstName = [defaults valueForKey:@"currentUserFirstName"];
@@ -251,7 +252,7 @@ BOOL fallDetected = FALSE;
 }
 //Test Method
 - (IBAction)testEmail:(UIButton *)sender
-{
+{;
     [self showEmail];
 }
 
@@ -295,9 +296,9 @@ BOOL fallDetected = FALSE;
     
     
     //Set Email Variables
-    NSString *emailTitle = @"Fall detected for %@ %@.";
-    NSString *messageBody = @"Relevant information here.";
-    //NSArray *toRecipients = _toRecipients;
+    NSString *emailTitle = [NSString stringWithFormat:@"Fall detected for %@ %@.", self.currentUser.firstName, self.currentUser.lastName];
+    NSString *messageBody = [NSString stringWithFormat:@"%@", self.latitude];
+//    NSArray *toRecipients = @"support@appcoda.com";
     
     MFMailComposeViewController *mc = [[MFMailComposeViewController alloc] init];
     mc.mailComposeDelegate = self;
@@ -348,7 +349,8 @@ BOOL fallDetected = FALSE;
 -(void) updateLocation
 {
     manager.delegate = self;
-    manager.desiredAccuracy = kCLLocationAccuracyBest;
+    manager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters;
+    manager.distanceFilter = 10;
     
     [manager startUpdatingLocation];
     
@@ -361,13 +363,16 @@ BOOL fallDetected = FALSE;
     NSLog(@"Failed to get location! :(");
     
 }
-- (void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation
+- (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations
 {
     
-    NSLog(@"Location: %@", newLocation);
-    CLLocation *currentLocation = newLocation;
+    NSLog(@"Location: blah");
+    CLLocation *currentLocation = [locations lastObject];
+    NSDate *eventDate = currentLocation.timestamp;
+    NSTimeInterval howRecent = [eventDate timeIntervalSinceNow];
     
-    if (currentLocation != nil) {
+    if (fabs(howRecent) < 15.0)
+    {
         
         _latitude = [NSString stringWithFormat:@"%.8f", currentLocation.coordinate.latitude];
         _longitude = [NSString stringWithFormat:@"%.8f", currentLocation.coordinate.longitude];
