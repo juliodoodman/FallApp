@@ -30,6 +30,7 @@
 @property (weak, nonatomic) IBOutlet UIImageView *bluetoothStrengthImage;
 @property (weak, nonatomic) IBOutlet UIButton *btConnectionButton;
 - (IBAction)connectToBluetooth:(UIButton *)sender;
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *connectionActivityIndicator;
 
 
 - (IBAction)fallDetection:(UISwitch *)sender;
