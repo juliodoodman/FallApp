@@ -24,6 +24,8 @@
 @property (weak, nonatomic) NSString *longitude;
 @property (weak, nonatomic) NSString *address;
 
+@property (strong) NSMutableArray *contactarray;
+
 
 @property (weak, nonatomic) IBOutlet UIButton *btConnectionButton;
 - (IBAction)connectToBluetooth:(UIButton *)sender;
