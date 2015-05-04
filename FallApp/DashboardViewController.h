@@ -27,6 +27,7 @@
 @property (strong) NSMutableArray *contactarray;
 
 
+@property (weak, nonatomic) IBOutlet UIImageView *bluetoothStrengthImage;
 @property (weak, nonatomic) IBOutlet UIButton *btConnectionButton;
 - (IBAction)connectToBluetooth:(UIButton *)sender;
 

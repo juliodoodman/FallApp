@@ -60,12 +60,33 @@ BOOL fallDetected = FALSE;
 
 - (void)bleDidDisconnect
 {
+    [[self bluetoothStrengthImage] setImage:[UIImage imageNamed:@"0bar.png"]];
     NSLog(@"->Disconnected");
     
 }
 
 - (void) bleDidUpdateRSSI:(NSNumber *) rssi
 {
+    if (rssi>-50)
+    {
+        [[self bluetoothStrengthImage] setImage:[UIImage imageNamed:@"4bar.png"]];
+
+    }
+    else if (rssi>-60)
+    {
+        [[self bluetoothStrengthImage] setImage:[UIImage imageNamed:@"3bar.png"]];
+
+    }
+    else if (rssi>-70)
+    {
+        [[self bluetoothStrengthImage] setImage:[UIImage imageNamed:@"2bar.png"]];
+
+    }
+    else
+    {
+        [[self bluetoothStrengthImage] setImage:[UIImage imageNamed:@"1bar.png"]];
+
+    }
     //NSLog(@"%@", rssi.stringValue);
 }
 
