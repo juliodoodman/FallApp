@@ -160,16 +160,43 @@ BOOL fallDetected = FALSE;
             o = data[i+2];
             NSLog(@"%d", o);
         }
-
-        if (x^2+y^2+z^2 > 100 && fallDetected == FALSE)
+        int magnitude =sqrt(x*x+y*y+z*z);
+        NSLog(@"Magnitude");
+        NSLog(@"%d", magnitude);
+        int threshold = 200;
+        if (magnitude > threshold && fallDetected == FALSE)
         {
             NSLog(@"Fall detected!");
             fallDetected = TRUE;
+            Timer = [NSTimer scheduledTimerWithTimeInterval:5 target:self selector:@selector(TimerCount) userInfo:nil repeats:NO];
             UIApplication *myApp = [UIApplication sharedApplication];
             AppDelegate *myAppDelegate  = [myApp delegate];
             
             [myAppDelegate makeNewFallWithXAccel:[NSNumber numberWithInt:x] andYAccel:[NSNumber numberWithInt:y] andZAccel:[NSNumber numberWithInt:z] andTime:[NSDate date] andNotes:@"Notes" andLocation:@"location" inContext:myAppDelegate.managedObjectContext];
-            [self showEmail];
+            
+            
+            UIAlertController* alert = [UIAlertController alertControllerWithTitle:@"We have Detected a Fall!"
+                                                                           message:@"An Alarm will go off in 30 seconds."
+                                                                    preferredStyle:UIAlertControllerStyleAlert];
+            
+            UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault
+                                                                  handler:^(UIAlertAction * action)
+            {
+                [theAudio stop];
+                [Timer invalidate];
+                fallDetected = FALSE;
+                [self showEmail];
+                                                                  }];
+            
+            [alert addAction:defaultAction];
+            [self presentViewController:alert animated:YES completion:nil];
+            
+            if (!fallDetected)
+            {
+            [Timer invalidate];
+            [theAudio stop];
+            }
+            
         }
         
     }
@@ -261,15 +288,10 @@ BOOL fallDetected = FALSE;
     
     
     //Array for Email Recipients
-    //NSSortDescriptor *descriptor = [[NSSortDescriptor alloc] initWithKey:@"name" ascending:YES];
-    //NSArray *sortDescriptors = [[NSArray alloc] initWithObjects:descriptor, nil];
-    //NSArray *contactsArray = [self.currentUser.emergencyContacts sortedArrayUsingDescriptors:sortDescriptors];
-    //_toRecipients = [contactsArray valueForKey:@"email"];
-//    NSMutableArray *emailArray;
-//    for (int i =0; i<contactsArray.elements; i++)
-//    {
-//        EmergencyContact *tempContact
-//    }
+    NSSortDescriptor *descriptor = [[NSSortDescriptor alloc] initWithKey:@"name" ascending:YES];
+    NSArray *sortDescriptors = [[NSArray alloc] initWithObjects:descriptor, nil];
+    NSArray *contactsArray = [self.currentUser.emergencyContacts sortedArrayUsingDescriptors:sortDescriptors];
+    _toRecipients = [contactsArray valueForKey:@"email"];
     
     
     
@@ -377,6 +399,10 @@ BOOL fallDetected = FALSE;
         
     } ];
     
+}
+-(void)TimerCount
+{
+    [self playAudio];
 }
 
 

@@ -12,6 +12,7 @@
 
 @interface SettingsViewController : UIViewController <NSFetchedResultsControllerDelegate>
 
+
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @property (strong) User *currentUser;
@@ -27,4 +28,6 @@
 
 @property (strong) NSManagedObject *contactdb;
 @property (strong) NSMutableArray *contactarray;
+
+
 @end
