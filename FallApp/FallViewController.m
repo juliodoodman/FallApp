@@ -30,51 +30,31 @@
     // Update the user interface for the detail item.
     if (self.detailItem)
     {
-        [self.dateLabel setText:[[_detailItem valueForKey:@"time"] description]];
+        self.dateLabel.hidden=NO;
+        self.timeLabel.hidden=NO;
+        self.locationLabel.hidden=NO;
+        self.notesLabel.hidden=NO;
+           
+        
+        
+        NSDate *fallDate = [_detailItem valueForKey:@"time"];
+        NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+        [dateFormatter setDateStyle:NSDateFormatterMediumStyle];
+        [dateFormatter setTimeStyle:NSDateFormatterNoStyle];
+        
+        NSDateFormatter *timeFormatter = [[NSDateFormatter alloc] init];
+        [timeFormatter setDateStyle:NSDateFormatterNoStyle];
+        [timeFormatter setTimeStyle:NSDateFormatterMediumStyle];
+        
+        NSString *formattedDateString = [dateFormatter stringFromDate:fallDate];
+        NSString *formattedTimeString = [timeFormatter stringFromDate:fallDate];
+        
+        
+        [self.dateLabel setText:formattedDateString];
+        [self.timeLabel setText:formattedTimeString];
         self.locationLabel.text = [[self.detailItem valueForKey:@"location"] description];
         self.notesLabel.text = [[self.detailItem valueForKey:@"notes"] description];
-//        self.nameLabel.text = [NSString stringWithFormat:@"%@ %@", [[self.detailItem valueForKey:@"firstName"] description], [[self.detailItem valueForKey:@"lastName"] description]];
-//        self.sexLabel.text = [[self.detailItem valueForKey:@"sex"] description];
-//        self.raceLabel.text = [[self.detailItem valueForKey:@"race"] description];
-//        self.alignmentLabel.text = [[self.detailItem valueForKey:@"alignment"] description];
-//        self.classLabel.text = [[self.detailItem valueForKey:@"characterClass"] description];
-//        self.levelLabel.text = [[self.detailItem valueForKey:@"level" ] description];
-//        self.portrait.image = [self.detailItem valueForKey:@"picture"];
-//        
-//        // Abilities
-//        NSMutableDictionary * abilitiesDictionary = [self.detailItem valueForKey:@"abilities"];
-//        self.strengthLabel.text = [[abilitiesDictionary valueForKey:@"strength"] description];
-//        self.dexterityLabel.text = [[abilitiesDictionary valueForKey:@"dexterity"] description];
-//        self.constitutionLabel.text = [[abilitiesDictionary valueForKey:@"constitution"] description];
-//        self.intelligenceLabel.text = [[abilitiesDictionary valueForKey:@"intelligence"] description];
-//        self.wisdomLabel.text = [[abilitiesDictionary valueForKey:@"wisdom"] description];
-//        self.charismaLabel.text = [[abilitiesDictionary valueForKey:@"charisma"] description];
-//        
-//        // Modifiers
-//        NSMutableDictionary * modifiersDictionary = [NSMutableDictionary dictionaryWithDictionary:abilitiesDictionary];
-//        int strength = [[abilitiesDictionary valueForKey:@"strength"] intValue];
-//        int dexterity = [[abilitiesDictionary valueForKey:@"dexterity"] intValue];
-//        int constitution = [[abilitiesDictionary valueForKey:@"constitution"] intValue];
-//        int intelligence = [[abilitiesDictionary valueForKey:@"intelligence"] intValue];
-//        int wisdom = [[abilitiesDictionary valueForKey:@"wisdom"] intValue];
-//        int charisma = [[abilitiesDictionary valueForKey:@"charisma"] intValue];
-//        [modifiersDictionary setValue:[NSNumber numberWithInt:strength/2 - 5] forKey:@"strength"];
-//        [modifiersDictionary setValue:[NSNumber numberWithInt:dexterity/2 - 5] forKey:@"dexterity"];
-//        [modifiersDictionary setValue:[NSNumber numberWithInt:constitution/2 - 5] forKey:@"constitution"];
-//        [modifiersDictionary setValue:[NSNumber numberWithInt:intelligence/2 - 5] forKey:@"intelligence"];
-//        [modifiersDictionary setValue:[NSNumber numberWithInt:wisdom/2 - 5] forKey:@"wisdom"];
-//        [modifiersDictionary setValue:[NSNumber numberWithInt:charisma/2 - 5] forKey:@"charisma"];
-//        
-//        self.strengthModifierLabel.text = [[modifiersDictionary valueForKey:@"strength"] description];
-//        self.dexterityModifierLabel.text = [[modifiersDictionary valueForKey:@"dexterity"] description];
-//        self.constitutionModifierLabel.text = [[modifiersDictionary valueForKey:@"constitution"] description];
-//        self.intelligenceModifierLabel.text = [[modifiersDictionary valueForKey:@"intelligence"] description];
-//        self.wisdomModifierLabel.text = [[modifiersDictionary valueForKey:@"wisdom"] description];
-//        self.charismaModifierLabel.text = [[modifiersDictionary valueForKey:@"charisma"] description];
-//        
-//        // Hitpoints
-//        self.currentHitPointsLabel.text = [NSString stringWithFormat:@"%@", [self.detailItem valueForKey:@"currentHitPoints"]];
-//        self.maximumHitPointsLabel.text = [NSString stringWithFormat:@"%@", [self.detailItem valueForKey:@"maxHitPoints"]];
+
     }
 }
 
@@ -102,4 +82,11 @@
 }
 */
 
+- (IBAction)hideLabels:(UIButton *)sender
+{
+    self.dateLabel.hidden=YES;
+    self.timeLabel.hidden=YES;
+    self.locationLabel.hidden=YES;
+    self.notesLabel.hidden=YES;
+}
 @end

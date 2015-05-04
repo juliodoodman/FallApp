@@ -26,6 +26,7 @@ BOOL fallDetected = FALSE;
 
 - (void)viewDidLoad
 {
+
     [super viewDidLoad];
     ble = [[BLE alloc] init];
     [ble controlSetup:(0)];
@@ -73,13 +74,37 @@ BOOL fallDetected = FALSE;
 
 - (void)bleDidDisconnect
 {
+    [[self bluetoothStrengthImage] setImage:[UIImage imageNamed:@"0bar.png"]];
     NSLog(@"->Disconnected");
     
 }
 
 - (void) bleDidUpdateRSSI:(NSNumber *) rssi
 {
+    if ([rssi intValue]<-50)
+    {
+        [[self bluetoothStrengthImage] setImage:[UIImage imageNamed:@"4bar.png"]];
+
+    }
+    else if ([rssi intValue]<-80)
+    {
+        [[self bluetoothStrengthImage] setImage:[UIImage imageNamed:@"3bar.png"]];
+
+    }
+    else if ([rssi intValue]<-110)
+    {
+        [[self bluetoothStrengthImage] setImage:[UIImage imageNamed:@"2bar.png"]];
+
+    }
+    else
+    {
+        [[self bluetoothStrengthImage] setImage:[UIImage imageNamed:@"1bar.png"]];
+
+    }
     //NSLog(@"%@", rssi.stringValue);
+    [_connectionActivityIndicator stopAnimating];
+    [_connectionActivityIndicator setHidden:true];
+
 }
 
 - (void) bleDidConnect
@@ -90,6 +115,9 @@ BOOL fallDetected = FALSE;
     
     NSData *data = [[NSData alloc] initWithBytes:buf length:3];
     [ble write:data];
+    [_connectionActivityIndicator stopAnimating];
+    [_connectionActivityIndicator setHidden:true];
+
 }
 
 -(void) bleDidReceiveData:(unsigned char *)data length:(int)length
@@ -165,12 +193,15 @@ BOOL fallDetected = FALSE;
     
     [NSTimer scheduledTimerWithTimeInterval:(float)2.0 target:self selector:@selector(connectionTimer:) userInfo:nil repeats:NO];
     
-    //[_connectionActivityIndicator startAnimating];
+    [_connectionActivityIndicator setHidden:false];
+    [_connectionActivityIndicator startAnimating];
 }
 - (void) connectionTimer:(NSTimer *)timer
 {
     [_btConnectionButton setEnabled:true];
     [_btConnectionButton setTitle:@"Disconnect" forState:UIControlStateNormal];
+    [_connectionActivityIndicator stopAnimating];
+    [_connectionActivityIndicator setHidden:true];
     
     if (ble.peripherals.count > 0)
     {
@@ -179,7 +210,8 @@ BOOL fallDetected = FALSE;
     else
     {
         [_btConnectionButton setTitle:@"Connect" forState:UIControlStateNormal];
-        //[_connectionActivityIndicator stopAnimating];
+        
+
     }
 }
 
