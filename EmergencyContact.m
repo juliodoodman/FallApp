@@ -13,8 +13,8 @@
 @implementation EmergencyContact
 
 @dynamic email;
-@dynamic firstName;
-@dynamic lastName;
+@dynamic name;
+
 @dynamic user;
 
 @end
