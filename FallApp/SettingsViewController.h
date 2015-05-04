@@ -16,10 +16,8 @@
 @property (weak, nonatomic) IBOutlet UITextField *nameTF;
 @property (weak, nonatomic) IBOutlet UITextField *emailTF;
 
-
 @property (weak, nonatomic) IBOutlet UIButton *saveButton;
 - (IBAction)saveData:(UIButton *)sender;
-
 
 @property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
 @property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;

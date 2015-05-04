@@ -88,7 +88,6 @@
 }
 
 
-
 - (IBAction)btnCancel:(id)sender
 {
     [self dismissViewControllerAnimated:YES completion:nil];
@@ -113,7 +112,6 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     //UITapGestureRecognizer *cellTapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(didTapCell:)];
     [self configureCell:cell atIndexPath:indexPath];
-    
     // Configure the cell...
 //    NSManagedObject *contact = [self.contactarray objectAtIndex:indexPath.row];
 //    [cell.detailTextLabel setText:[NSString stringWithFormat:@"%@ %@", [contact valueForKey:@"name"], [contact valueForKey:@"email"]]];
@@ -122,6 +120,11 @@
     return cell;
 }
 
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    self.nameTF.text = [[self.contactarray objectAtIndex:indexPath.row] valueForKey:@"name"];
+    self.emailTF.text = [[self.contactarray objectAtIndex:indexPath.row] valueForKey:@"email"];
+}
 
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath
 {
