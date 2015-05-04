@@ -48,7 +48,7 @@ BOOL fallDetected = FALSE;
     
     NSManagedObjectContext *managedObjectContext = [self managedObjectContext];
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"User"];
-    [fetchRequest setPredicate:predicateUser];
+    [fetchRequest setPredicate:predicate];
     //[fetchRequest mutableArrayValueForKey:@"emergencyContacts"];
     //self.toRecipients = [[managedObjectContext executeFetchRequest:fetchRequest error:nil] mutableCopy];
 
