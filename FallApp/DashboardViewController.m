@@ -162,7 +162,7 @@ BOOL fallDetected = FALSE;
         int magnitude =sqrt(x*x+y*y+z*z);
         NSLog(@"Magnitude");
         NSLog(@"%d", magnitude);
-        int threshold = 120;
+        int threshold = 200;
         if (magnitude > threshold && fallDetected == FALSE)
         {
             NSLog(@"Fall detected!");
@@ -193,6 +193,7 @@ BOOL fallDetected = FALSE;
             if (!fallDetected)
             {
             [Timer invalidate];
+            [theAudio stop];
             }
             
         }
