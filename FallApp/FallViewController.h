@@ -16,5 +16,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *locationLabel;
 @property (weak, nonatomic) IBOutlet UILabel *notesLabel;
 
+- (IBAction)homeButtonPressed:(UIButton *)sender;
 - (IBAction)hideLabels:(UIButton *)sender;
 @end
