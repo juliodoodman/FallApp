@@ -157,15 +157,15 @@ BOOL fallDetected = FALSE;
         }
         else if (data[i] == 0x0D) //O-pin (orientation)?
         {
-            NSLog(@"O-pin value");
+           // NSLog(@"O-pin value");
             //NSLog(@"0x%02X, 0x%02X, 0x%02X", data[i], data[i+1], data[i+2]);
             o = data[i+2];
-            NSLog(@"%d", o);
+           // NSLog(@"%d", o);
         }
         int magnitude =sqrt(x*x+y*y+z*z);
         NSLog(@"Magnitude");
         NSLog(@"%d", magnitude);
-        int threshold = 280;
+        int threshold = 215;
         if (magnitude > threshold && fallDetected == FALSE)
         {
             NSLog(@"Fall detected!");
