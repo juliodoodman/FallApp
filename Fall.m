@@ -2,7 +2,7 @@
 //  Fall.m
 //  FallApp
 //
-//  Created by Julio Morera on 5/2/15.
+//  Created by Julio Morera on 5/4/15.
 //  Copyright (c) 2015 Julio Morera. All rights reserved.
 //
 
@@ -18,6 +18,8 @@
 @dynamic xAccel;
 @dynamic yAccel;
 @dynamic zAccel;
+@dynamic userFirstName;
+@dynamic userLastName;
 @dynamic user;
 
 @end

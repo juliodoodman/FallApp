@@ -27,7 +27,10 @@
     
     if ([self.fetchedResultsController.fetchedObjects count] == 0)
     {
-        [self makeNewUserWithFirstName:@"Colin" andLastName:@"Barry" andEmail:@"cpbarry@asu.edu" inContext:self.managedObjectContext];
+        [self makeNewUserWithFirstName:@"Colin" andLastName:@"Barry" andEmail:@"cpbarry@asu.edu" andPassword:@"password" inContext:self.managedObjectContext];
+        [self makeNewUserWithFirstName:@"Julio" andLastName:@"Morera" andEmail:@"jmorera@asu.edu" andPassword:@"password" inContext:self.managedObjectContext];
+        [self makeNewUserWithFirstName:@"John" andLastName:@"Doe" andEmail:@"jdoe1@asu.edu" andPassword:@"password" inContext:self.managedObjectContext];
+        [self makeNewUserWithFirstName:@"Jane" andLastName:@"Doe" andEmail:@"jdoe2@asu.edu" andPassword:@"password" inContext:self.managedObjectContext];
     }
     
     if ([self.fallFetchedResultsController.fetchedObjects count] == 0)
@@ -72,12 +75,13 @@
     [self saveContext];
 }
 
-- (void)makeNewUserWithFirstName:(NSString *)firstName andLastName:(NSString *)lastName andEmail:(NSString *)email inContext:(NSManagedObjectContext*)context
+- (void)makeNewUserWithFirstName:(NSString *)firstName andLastName:(NSString *)lastName andEmail:(NSString *)email andPassword:(NSString *)password inContext:(NSManagedObjectContext*)context
 {
     User *thisUser = [NSEntityDescription insertNewObjectForEntityForName:@"User" inManagedObjectContext:context];
     [thisUser setFirstName:firstName];
     [thisUser setLastName:lastName];
     [thisUser setEmail:email];
+    [thisUser setPassword:password];
     
 }
 - (void)makeNewEmergencyContactWithtName:(NSString *)name andEmail:(NSString *)email inContext:(NSManagedObjectContext*)context

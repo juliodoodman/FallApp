@@ -2,13 +2,17 @@
 <model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="7549" systemVersion="14D136" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
     <entity name="EmergencyContact" representedClassName="EmergencyContact" syncable="YES">
         <attribute name="email" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="name" attributeType="String" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="userFirstName" attributeType="String" syncable="YES"/>
+        <attribute name="userLastName" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="user" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="emergencyContacts" inverseEntity="User" syncable="YES"/>
     </entity>
     <entity name="Fall" representedClassName="Fall" syncable="YES">
         <attribute name="location" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="notes" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="time" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="userFirstName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="userLastName" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="xAccel" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
         <attribute name="yAccel" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
         <attribute name="zAccel" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
@@ -18,12 +22,13 @@
         <attribute name="email" attributeType="String" syncable="YES"/>
         <attribute name="firstName" attributeType="String" syncable="YES"/>
         <attribute name="lastName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="password" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="emergencyContacts" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="EmergencyContact" inverseName="user" inverseEntity="EmergencyContact" syncable="YES"/>
         <relationship name="falls" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Fall" inverseName="user" inverseEntity="Fall" syncable="YES"/>
     </entity>
     <elements>
-        <element name="EmergencyContact" positionX="-128" positionY="-477" width="128" height="90"/>
-        <element name="Fall" positionX="-459" positionY="-511" width="128" height="150"/>
-        <element name="User" positionX="-308" positionY="-571" width="128" height="120"/>
+        <element name="EmergencyContact" positionX="-128" positionY="-477" width="128" height="118"/>
+        <element name="Fall" positionX="-585" positionY="-510" width="128" height="178"/>
+        <element name="User" positionX="-308" positionY="-571" width="128" height="133"/>
     </elements>
 </model>
