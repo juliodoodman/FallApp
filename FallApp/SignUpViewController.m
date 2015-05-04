@@ -44,6 +44,6 @@
 
     //Setting the object
     
-    [myAppDelegate makeNewUserWithFirstName:_firstNameTF.text andLastName:_lastNameTF.text andEmail:_emailTF.text inContext:myAppDelegate.managedObjectContext];
+    [myAppDelegate makeNewUserWithFirstName:_firstNameTF.text andLastName:_lastNameTF.text andEmail:_emailTF.text andPassword:@"password" inContext:myAppDelegate.managedObjectContext];
 }
 @end

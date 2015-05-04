@@ -17,9 +17,6 @@
 		76362CCD1AE84D4000A132E6 /* SignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 76362CCC1AE84D4000A132E6 /* SignUpViewController.m */; };
 		76362CD01AE84F7200A132E6 /* HowToViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 76362CCF1AE84F7200A132E6 /* HowToViewController.m */; };
 		76362CD31AE852F200A132E6 /* TestingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 76362CD21AE852F200A132E6 /* TestingViewController.m */; };
-		766EBDFF1AF56A1500627901 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 766EBDFE1AF56A1500627901 /* User.m */; };
-		766EBE021AF56A1600627901 /* EmergencyContact.m in Sources */ = {isa = PBXBuildFile; fileRef = 766EBE011AF56A1600627901 /* EmergencyContact.m */; };
-		766EBE081AF58E8700627901 /* Fall.m in Sources */ = {isa = PBXBuildFile; fileRef = 766EBE071AF58E8700627901 /* Fall.m */; };
 		76891ECA1AF6F3F5005723B2 /* alarm.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 76891EC91AF6F3F5005723B2 /* alarm.mp3 */; };
 		76891ECD1AF6F5C3005723B2 /* FallViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 76891ECC1AF6F5C3005723B2 /* FallViewController.m */; };
 		76891ED61AF6F76D005723B2 /* MasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 76891ED51AF6F76D005723B2 /* MasterViewController.m */; };
@@ -36,6 +33,9 @@
 		76D383F01AE83C2E00359774 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 76D383EF1AE83C2E00359774 /* UIKit.framework */; };
 		76D383F21AE83C4800359774 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 76D383F11AE83C4800359774 /* CoreGraphics.framework */; };
 		76D383F41AE83C5000359774 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 76D383F31AE83C5000359774 /* Foundation.framework */; };
+		76F9FC931AF7BFFB006FA6A8 /* Fall.m in Sources */ = {isa = PBXBuildFile; fileRef = 76F9FC921AF7BFFB006FA6A8 /* Fall.m */; };
+		76F9FC961AF7C3DB006FA6A8 /* EmergencyContact.m in Sources */ = {isa = PBXBuildFile; fileRef = 76F9FC951AF7C3DB006FA6A8 /* EmergencyContact.m */; };
+		76F9FC9C1AF7D9C4006FA6A8 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 76F9FC9B1AF7D9C4006FA6A8 /* User.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,12 +63,6 @@
 		76362CCF1AE84F7200A132E6 /* HowToViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HowToViewController.m; sourceTree = "<group>"; };
 		76362CD11AE852F200A132E6 /* TestingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestingViewController.h; sourceTree = "<group>"; };
 		76362CD21AE852F200A132E6 /* TestingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestingViewController.m; sourceTree = "<group>"; };
-		766EBDFD1AF56A1500627901 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
-		766EBDFE1AF56A1500627901 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
-		766EBE001AF56A1600627901 /* EmergencyContact.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EmergencyContact.h; sourceTree = "<group>"; };
-		766EBE011AF56A1600627901 /* EmergencyContact.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EmergencyContact.m; sourceTree = "<group>"; };
-		766EBE061AF58E8700627901 /* Fall.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Fall.h; sourceTree = "<group>"; };
-		766EBE071AF58E8700627901 /* Fall.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Fall.m; sourceTree = "<group>"; };
 		76891EC91AF6F3F5005723B2 /* alarm.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = alarm.mp3; sourceTree = "<group>"; };
 		76891ECB1AF6F5C3005723B2 /* FallViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FallViewController.h; sourceTree = "<group>"; };
 		76891ECC1AF6F5C3005723B2 /* FallViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FallViewController.m; sourceTree = "<group>"; };
@@ -94,6 +88,12 @@
 		76D383EF1AE83C2E00359774 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		76D383F11AE83C4800359774 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		76D383F31AE83C5000359774 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		76F9FC911AF7BFFB006FA6A8 /* Fall.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Fall.h; sourceTree = "<group>"; };
+		76F9FC921AF7BFFB006FA6A8 /* Fall.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Fall.m; sourceTree = "<group>"; };
+		76F9FC941AF7C3DB006FA6A8 /* EmergencyContact.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EmergencyContact.h; sourceTree = "<group>"; };
+		76F9FC951AF7C3DB006FA6A8 /* EmergencyContact.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EmergencyContact.m; sourceTree = "<group>"; };
+		76F9FC9A1AF7D9C4006FA6A8 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
+		76F9FC9B1AF7D9C4006FA6A8 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,12 +124,12 @@
 		76D383B21AE5B54100359774 = {
 			isa = PBXGroup;
 			children = (
-				766EBE061AF58E8700627901 /* Fall.h */,
-				766EBE071AF58E8700627901 /* Fall.m */,
-				766EBE001AF56A1600627901 /* EmergencyContact.h */,
-				766EBE011AF56A1600627901 /* EmergencyContact.m */,
-				766EBDFD1AF56A1500627901 /* User.h */,
-				766EBDFE1AF56A1500627901 /* User.m */,
+				76F9FC9A1AF7D9C4006FA6A8 /* User.h */,
+				76F9FC9B1AF7D9C4006FA6A8 /* User.m */,
+				76F9FC941AF7C3DB006FA6A8 /* EmergencyContact.h */,
+				76F9FC951AF7C3DB006FA6A8 /* EmergencyContact.m */,
+				76F9FC911AF7BFFB006FA6A8 /* Fall.h */,
+				76F9FC921AF7BFFB006FA6A8 /* Fall.m */,
 				3BCCF3161AF554D20078E8B2 /* BLE.m */,
 				3BCCF3141AF552630078E8B2 /* AVFoundation.framework */,
 				3BCCF3121AF5525A0078E8B2 /* MessageUI.framework */,
@@ -315,17 +315,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				76F9FC9C1AF7D9C4006FA6A8 /* User.m in Sources */,
+				76F9FC931AF7BFFB006FA6A8 /* Fall.m in Sources */,
 				3BCCF3171AF554D20078E8B2 /* BLE.m in Sources */,
 				76362CC41AE8460D00A132E6 /* BLE_Framework in Sources */,
 				76891ECD1AF6F5C3005723B2 /* FallViewController.m in Sources */,
 				76D383C41AE5B54200359774 /* AppDelegate.m in Sources */,
-				766EBE021AF56A1600627901 /* EmergencyContact.m in Sources */,
 				76362CC71AE8486F00A132E6 /* LoginScreenViewController.m in Sources */,
 				76D383C71AE5B54200359774 /* FallApp.xcdatamodeld in Sources */,
+				76F9FC961AF7C3DB006FA6A8 /* EmergencyContact.m in Sources */,
 				76D383CA1AE5B54200359774 /* DashboardViewController.m in Sources */,
 				76362CD01AE84F7200A132E6 /* HowToViewController.m in Sources */,
-				766EBE081AF58E8700627901 /* Fall.m in Sources */,
-				766EBDFF1AF56A1500627901 /* User.m in Sources */,
 				76D383C11AE5B54200359774 /* main.m in Sources */,
 				76891ED61AF6F76D005723B2 /* MasterViewController.m in Sources */,
 				76362CCD1AE84D4000A132E6 /* SignUpViewController.m in Sources */,

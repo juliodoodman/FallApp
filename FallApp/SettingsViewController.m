@@ -29,18 +29,16 @@
     NSString *currentUserFirstName = [defaults valueForKey:@"currentUserFirstName"];
     NSString *currentUserLastName = [defaults valueForKey:@"currentUserLastName"];
     
-    NSPredicate *predicate   = [NSPredicate predicateWithFormat:@"%K like %@ AND %K like %@",
+    NSPredicate *predicate   = [NSPredicate predicateWithFormat:@"%K == %@ AND %K == %@",
                                 @"firstName", currentUserFirstName, @"lastName", currentUserLastName];
     
     NSManagedObjectContext *managedObjectContext = [self managedObjectContext];
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"User"];
     [fetchRequest setPredicate:predicate];
-    [fetchRequest setRelationshipKeyPathsForPrefetching:[NSArray arrayWithObject:@"emergencyContacts"]];
     
-    self.currentUser = [[managedObjectContext executeFetchRequest:fetchRequest error:nil] mutableCopy];
-    NSArray *stuff = [self.currentUser mutableArrayValueForKeyPath:@"emergencyContacts"];
-    
-    NSLog(@"blee");
+    self.userArray = [[managedObjectContext executeFetchRequest:fetchRequest error:nil] mutableCopy];
+    self.currentUser = self.userArray[0];
+    NSLog([NSString stringWithFormat:@"Welcome, %@ %@!", self.currentUser.firstName, self.currentUser.lastName]);
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -52,14 +50,14 @@
     NSString *currentUserFirstName = [defaults valueForKey:@"currentUserFirstName"];
     NSString *currentUserLastName = [defaults valueForKey:@"currentUserLastName"];
     
-    NSPredicate *predicate   = [NSPredicate predicateWithFormat:@"%K like %@ AND %K like %@",
-                                @"firstName", currentUserFirstName, @"lastName", currentUserLastName];
+    NSPredicate *predicate   = [NSPredicate predicateWithFormat:@"%K == %@ AND %K == %@",
+                                @"userFirstName", currentUserFirstName, @"userLastName", currentUserLastName];
     
     NSManagedObjectContext *managedObjectContext = [self managedObjectContext];
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"EmergencyContact"];
-    [fetchRequest setRelationshipKeyPathsForPrefetching:[NSArray arrayWithObject:@"user"]];
+    [fetchRequest setPredicate:predicate];
     
-    self.contactarray = [[managedObjectContext executeFetchRequest:fetchRequest error:nil] mutableCopy];
+    self.contactArray = [[managedObjectContext executeFetchRequest:fetchRequest error:nil] mutableCopy];
     
     [self.tableView reloadData];
 }
@@ -97,8 +95,9 @@
                                       insertNewObjectForEntityForName:@"EmergencyContact" inManagedObjectContext:context];
         [newContact setValue:self.nameTF.text forKey:@"name"];
         [newContact setValue:self.emailTF.text forKey:@"email"];
-        //[newContact setValue:self.currentUser forKeyPath:@"user.emergencyContacts"];
-        [self.currentUser addEmergencyContactsObject:newContact];
+        [newContact setValue:self.currentUser.firstName forKey:@"userFirstName"];
+        [newContact setValue:self.currentUser.lastName forKey:@"userLastName"];
+        
     }
     NSError *error = nil;
     // Save the object to persistent store
@@ -107,12 +106,14 @@
     NSLog(@"Can't Save! %@ %@", error, [error localizedDescription]);
     }
     
-    
     NSManagedObjectContext *managedObjectContext = [self managedObjectContext];
-    //NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"User"];
+    NSPredicate *predicate   = [NSPredicate predicateWithFormat:@"%K == %@ AND %K == %@",
+                                @"userFirstName", self.currentUser.firstName, @"userLastName", self.currentUser.lastName];
     
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"EmergencyContact"];
-    self.contactarray = [[managedObjectContext executeFetchRequest:fetchRequest error:nil] mutableCopy];
+    [fetchRequest setPredicate:predicate];
+    
+    self.contactArray = [[managedObjectContext executeFetchRequest:fetchRequest error:nil] mutableCopy];
     
     [self.tableView reloadData];
 //[self dismissViewControllerAnimated:YES completion:nil];
@@ -134,33 +135,27 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     
-    return self.contactarray.count;
+    return self.contactArray.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"cell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
-    //UITapGestureRecognizer *cellTapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(didTapCell:)];
     [self configureCell:cell atIndexPath:indexPath];
-    // Configure the cell...
-//    NSManagedObject *contact = [self.contactarray objectAtIndex:indexPath.row];
-//    [cell.detailTextLabel setText:[NSString stringWithFormat:@"%@ %@", [contact valueForKey:@"name"], [contact valueForKey:@"email"]]];
-//    //[cell.detailTextLabel setText:[device valueForKey:@"phone"]];
-//    [cell.textLabel setText:[NSString stringWithFormat:@"%@", [contact valueForKey:@"name"]]];
     return cell;
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    self.nameTF.text = [[self.contactarray objectAtIndex:indexPath.row] valueForKey:@"name"];
-    self.emailTF.text = [[self.contactarray objectAtIndex:indexPath.row] valueForKey:@"email"];
+    self.nameTF.text = [[self.contactArray objectAtIndex:indexPath.row] valueForKey:@"name"];
+    self.emailTF.text = [[self.contactArray objectAtIndex:indexPath.row] valueForKey:@"email"];
 }
 
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath
 {
     // What goes in each cell.
-    NSManagedObject *contact = [self.contactarray objectAtIndex:indexPath.row];
+    NSManagedObject *contact = [self.contactArray objectAtIndex:indexPath.row];
     [cell.detailTextLabel setText:[NSString stringWithFormat:@"%@ %@", [contact valueForKey:@"name"], [contact valueForKey:@"email"]]];
     [cell.textLabel setText:[NSString stringWithFormat:@"%@", [contact valueForKey:@"name"]]];
 }
@@ -180,7 +175,7 @@
     if (editingStyle == UITableViewCellEditingStyleDelete)
     {
         // Delete object from database
-        [context deleteObject:[self.contactarray objectAtIndex:indexPath.row]];
+        [context deleteObject:[self.contactArray objectAtIndex:indexPath.row]];
         
         NSError *error = nil;
         if (![context save:&error]) {
@@ -189,7 +184,7 @@
         }
         
         // Remove device from table view
-        [self.contactarray removeObjectAtIndex:indexPath.row];
+        [self.contactArray removeObjectAtIndex:indexPath.row];
         [self.tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
     }
 }

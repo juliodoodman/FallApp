@@ -43,7 +43,7 @@ BOOL fallDetected = FALSE;
     NSString *currentUserFirstName = [defaults valueForKey:@"currentUserFirstName"];
     NSString *currentUserLastName = [defaults valueForKey:@"currentUserLastName"];
     
-    NSPredicate *predicateUser   = [NSPredicate predicateWithFormat:@"%K like %@ AND %K like %@",
+    NSPredicate *predicate   = [NSPredicate predicateWithFormat:@"%K == %@ AND %K == %@",
                                 @"firstName", currentUserFirstName, @"lastName", currentUserLastName];
     
     NSManagedObjectContext *managedObjectContext = [self managedObjectContext];
@@ -53,6 +53,7 @@ BOOL fallDetected = FALSE;
     //self.toRecipients = [[managedObjectContext executeFetchRequest:fetchRequest error:nil] mutableCopy];
 
     self.userArray = [[managedObjectContext executeFetchRequest:fetchRequest error:nil] mutableCopy];
+    
     self.currentUser = self.userArray[0];
     _toRecipients = [self.currentUser mutableArrayValueForKeyPath:@"emergencyContacts.user"];
     NSLog(@"bloo");

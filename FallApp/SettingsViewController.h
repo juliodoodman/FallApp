@@ -16,6 +16,7 @@
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @property (strong) User *currentUser;
+@property (strong) NSArray *userArray;
 
 @property (weak, nonatomic) IBOutlet UITextField *nameTF;
 @property (weak, nonatomic) IBOutlet UITextField *emailTF;
@@ -25,9 +26,9 @@
 
 @property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
 @property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
-
 @property (strong) NSManagedObject *contactdb;
-@property (strong) NSMutableArray *contactarray;
+
+@property (strong) NSMutableArray *contactArray;
 
 
 @end
