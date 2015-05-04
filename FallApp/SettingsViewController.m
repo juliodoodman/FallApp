@@ -50,7 +50,8 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-- (IBAction)btnsave:(id)sender
+
+- (IBAction)saveData:(id)sender
 {
     NSManagedObjectContext *context = [self managedObjectContext];
     if (self.contactdb)
@@ -72,8 +73,11 @@
     {
     NSLog(@"Can't Save! %@ %@", error, [error localizedDescription]);
     }
-[self dismissViewControllerAnimated:YES completion:nil];
+//[self dismissViewControllerAnimated:YES completion:nil];
 }
+
+
+
 - (IBAction)btnCancel:(id)sender
 {
     [self dismissViewControllerAnimated:YES completion:nil];
