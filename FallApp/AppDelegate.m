@@ -25,6 +25,11 @@
     
     [self.managedObjectContext executeFetchRequest:self.fallFetchedResultsController.fetchRequest error:nil];
     
+    if ([self.fetchedResultsController.fetchedObjects count] == 0)
+    {
+        [self makeNewUserWithFirstName:@"Colin" andLastName:@"Barry" andEmail:@"cpbarry@asu.edu" inContext:self.managedObjectContext];
+    }
+    
     if ([self.fallFetchedResultsController.fetchedObjects count] == 0)
     {
         [self makeNewFallWithXAccel:0 andYAccel:0 andZAccel:0 andTime:[NSDate date] andNotes:@"Fall" andLocation:@"Here" inContext:self.managedObjectContext];

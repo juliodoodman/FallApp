@@ -14,9 +14,16 @@
 
 @implementation LoginScreenViewController
 
-- (void)viewDidLoad {
+- (void)viewDidLoad
+{
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setValue:@"Colin" forKey:@"currentUserFirstName"];
+    [defaults setValue:@"Barry" forKey:@"currentUserLastName"];
+    [defaults synchronize];
 }
 
 - (void)didReceiveMemoryWarning {

@@ -15,6 +15,7 @@
 #import <CoreLocation/CoreLocation.h>
 #import <AVFoundation/AVFoundation.h>
 #import "Fall.h"
+#import "User.h"
 
 @interface DashboardViewController : UIViewController <BLEDelegate, AVAudioPlayerDelegate, MFMailComposeViewControllerDelegate, CLLocationManagerDelegate>
 
@@ -24,7 +25,9 @@
 @property (weak, nonatomic) NSString *longitude;
 @property (weak, nonatomic) NSString *address;
 
-@property (strong) NSMutableArray *contactarray;
+@property (strong) NSMutableArray *userArray;
+@property (strong) User *currentUser;
+@property (strong) NSArray *toRecipients;
 
 
 @property (weak, nonatomic) IBOutlet UIButton *btConnectionButton;

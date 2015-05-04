@@ -25,15 +25,40 @@
         [self.nameTF setText:[self.contactdb valueForKey:@"name"]];
         [self.emailTF setText:[self.contactdb valueForKey:@"email"]];
     }
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSString *currentUserFirstName = [defaults valueForKey:@"currentUserFirstName"];
+    NSString *currentUserLastName = [defaults valueForKey:@"currentUserLastName"];
+    
+    NSPredicate *predicate   = [NSPredicate predicateWithFormat:@"%K like %@ AND %K like %@",
+                                @"firstName", currentUserFirstName, @"lastName", currentUserLastName];
+    
+    NSManagedObjectContext *managedObjectContext = [self managedObjectContext];
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"User"];
+    [fetchRequest setPredicate:predicate];
+    [fetchRequest setRelationshipKeyPathsForPrefetching:[NSArray arrayWithObject:@"emergencyContacts"]];
+    
+    self.currentUser = [[managedObjectContext executeFetchRequest:fetchRequest error:nil] mutableCopy];
+    NSArray *stuff = [self.currentUser mutableArrayValueForKeyPath:@"emergencyContacts"];
+    
+    NSLog(@"blee");
 }
 
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
     
-    // Fetch the devices from persistent data store
+    // Fetch the contacts from persistent data store
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSString *currentUserFirstName = [defaults valueForKey:@"currentUserFirstName"];
+    NSString *currentUserLastName = [defaults valueForKey:@"currentUserLastName"];
+    
+    NSPredicate *predicate   = [NSPredicate predicateWithFormat:@"%K like %@ AND %K like %@",
+                                @"firstName", currentUserFirstName, @"lastName", currentUserLastName];
+    
     NSManagedObjectContext *managedObjectContext = [self managedObjectContext];
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"EmergencyContact"];
+    [fetchRequest setRelationshipKeyPathsForPrefetching:[NSArray arrayWithObject:@"user"]];
+    
     self.contactarray = [[managedObjectContext executeFetchRequest:fetchRequest error:nil] mutableCopy];
     
     [self.tableView reloadData];
@@ -72,6 +97,8 @@
                                       insertNewObjectForEntityForName:@"EmergencyContact" inManagedObjectContext:context];
         [newContact setValue:self.nameTF.text forKey:@"name"];
         [newContact setValue:self.emailTF.text forKey:@"email"];
+        //[newContact setValue:self.currentUser forKeyPath:@"user.emergencyContacts"];
+        [self.currentUser addEmergencyContactsObject:newContact];
     }
     NSError *error = nil;
     // Save the object to persistent store
@@ -79,7 +106,11 @@
     {
     NSLog(@"Can't Save! %@ %@", error, [error localizedDescription]);
     }
+    
+    
     NSManagedObjectContext *managedObjectContext = [self managedObjectContext];
+    //NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"User"];
+    
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"EmergencyContact"];
     self.contactarray = [[managedObjectContext executeFetchRequest:fetchRequest error:nil] mutableCopy];
     

@@ -8,6 +8,7 @@
 
 #import "DashboardViewController.h"
 #import "AppDelegate.h"
+#import "User.h"
 
 @interface DashboardViewController ()
 
@@ -34,11 +35,23 @@ BOOL fallDetected = FALSE;
     manager = [[CLLocationManager alloc] init];
     geocoder = [[CLGeocoder alloc] init];
     
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSString *currentUserFirstName = [defaults valueForKey:@"currentUserFirstName"];
+    NSString *currentUserLastName = [defaults valueForKey:@"currentUserLastName"];
+    
+    NSPredicate *predicate   = [NSPredicate predicateWithFormat:@"%K like %@ AND %K like %@",
+                                @"firstName", currentUserFirstName, @"lastName", currentUserLastName];
+    
     NSManagedObjectContext *managedObjectContext = [self managedObjectContext];
-    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"EmergencyContact"];
-    self.contactarray = [[managedObjectContext executeFetchRequest:fetchRequest error:nil] mutableCopy];
-    
-    
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"User"];
+    [fetchRequest setPredicate:predicate];
+    //[fetchRequest mutableArrayValueForKey:@"emergencyContacts"];
+    //self.toRecipients = [[managedObjectContext executeFetchRequest:fetchRequest error:nil] mutableCopy];
+
+    self.userArray = [[managedObjectContext executeFetchRequest:fetchRequest error:nil] mutableCopy];
+    self.currentUser = self.userArray[0];
+    _toRecipients = [self.currentUser mutableArrayValueForKeyPath:@"emergencyContacts.user"];
+    NSLog(@"bloo");
 }
 - (NSManagedObjectContext *)managedObjectContext
 {
@@ -215,20 +228,30 @@ BOOL fallDetected = FALSE;
     
     
     //Array for Email Recipients
+    //NSSortDescriptor *descriptor = [[NSSortDescriptor alloc] initWithKey:@"name" ascending:YES];
+    //NSArray *sortDescriptors = [[NSArray alloc] initWithObjects:descriptor, nil];
+    //NSArray *contactsArray = [self.currentUser.emergencyContacts sortedArrayUsingDescriptors:sortDescriptors];
+    //_toRecipients = [contactsArray valueForKey:@"email"];
+//    NSMutableArray *emailArray;
+//    for (int i =0; i<contactsArray.elements; i++)
+//    {
+//        EmergencyContact *tempContact
+//    }
     
     
     
     //Set Email Variables
-    NSString *emailTitle = @"Julio, Does this work?";
-    NSString *messageBody = @"Hey, check this out!";
-    NSArray *toRecipents = [NSArray arrayWithObject:@"support@appcoda.com"];
+    NSString *emailTitle = @"Fall detected for %@ %@.";
+    NSString *messageBody = @"Relevant information here.";
+//    NSArray *toRecipients = @"support@appcoda.com";
     
     MFMailComposeViewController *mc = [[MFMailComposeViewController alloc] init];
     mc.mailComposeDelegate = self;
     [mc setSubject:emailTitle];
     
     [mc setMessageBody:messageBody isHTML:NO];
-    [mc setToRecipients:toRecipents];
+    [mc setToRecipients:_toRecipients];
+    [mc setCcRecipients:[NSArray arrayWithObject:self.currentUser.email]];
     
     
     // Present mail view controller on screen
