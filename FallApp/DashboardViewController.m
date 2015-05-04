@@ -9,6 +9,8 @@
 #import "DashboardViewController.h"
 #import "AppDelegate.h"
 #import "User.h"
+#import "Fall.h"
+#import "EmergencyContact.h"
 
 @interface DashboardViewController ()
 
@@ -41,12 +43,12 @@ BOOL fallDetected = FALSE;
     NSString *currentUserFirstName = [defaults valueForKey:@"currentUserFirstName"];
     NSString *currentUserLastName = [defaults valueForKey:@"currentUserLastName"];
     
-    NSPredicate *predicate   = [NSPredicate predicateWithFormat:@"%K like %@ AND %K like %@",
+    NSPredicate *predicateUser   = [NSPredicate predicateWithFormat:@"%K like %@ AND %K like %@",
                                 @"firstName", currentUserFirstName, @"lastName", currentUserLastName];
     
     NSManagedObjectContext *managedObjectContext = [self managedObjectContext];
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"User"];
-    [fetchRequest setPredicate:predicate];
+    [fetchRequest setPredicate:predicateUser];
     //[fetchRequest mutableArrayValueForKey:@"emergencyContacts"];
     //self.toRecipients = [[managedObjectContext executeFetchRequest:fetchRequest error:nil] mutableCopy];
 
@@ -163,7 +165,7 @@ BOOL fallDetected = FALSE;
         int magnitude =sqrt(x*x+y*y+z*z);
         NSLog(@"Magnitude");
         NSLog(@"%d", magnitude);
-        int threshold = 200;
+        int threshold = 280;
         if (magnitude > threshold && fallDetected == FALSE)
         {
             NSLog(@"Fall detected!");
@@ -281,31 +283,73 @@ BOOL fallDetected = FALSE;
 -(void)showEmail
 
 {
-    //String for Email Subject Line
+    //Email Contacts
+    NSManagedObjectContext *moc2 = [self managedObjectContext];
+    NSEntityDescription *entityDescription2 = [NSEntityDescription
+                                              entityForName:@"EmergencyContact" inManagedObjectContext:moc2];
+    NSFetchRequest *request2 = [[NSFetchRequest alloc] init];
+    [request2 setEntity:entityDescription2];
     
     
+    NSSortDescriptor *sortDescriptor2 = [[NSSortDescriptor alloc]
+                                         initWithKey:@"name" ascending:YES];
+    [request2 setSortDescriptors:@[sortDescriptor2]];
+    
+    NSError *error;
+    NSArray *array2 = [moc2 executeFetchRequest:request2 error:&error];
+    NSMutableArray *emailArray = [[NSMutableArray alloc] initWithCapacity:[array2 count]];
+    for( int i=0; i< [array2 count]; i++)
+    {
+        EmergencyContact *tempContact = array2[i];
+        [emailArray insertObject:tempContact.email atIndex:i];
+      
+    }
+    
+    
+    //Fall Data
+    NSManagedObjectContext *moc1 = [self managedObjectContext];
+    NSEntityDescription *entityDescription1 = [NSEntityDescription
+                                              entityForName:@"Fall" inManagedObjectContext:moc1];
+    NSFetchRequest *request1 = [[NSFetchRequest alloc] init];
+    [request1 setEntity:entityDescription1];
+    
+    
+    NSSortDescriptor *sortDescriptor1 = [[NSSortDescriptor alloc]
+                                        initWithKey:@"time" ascending:YES];
+    [request1 setSortDescriptors:@[sortDescriptor1]];
+    
+    NSArray *arryay1 = [moc1 executeFetchRequest:request1 error:&error];
+    Fall *currentFall= arryay1[([arryay1 count]-1)];
+    
+    NSDate *fallDate = currentFall.time;
     //String for Email Subject Body
+
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateStyle:NSDateFormatterMediumStyle];
+    [dateFormatter setTimeStyle:NSDateFormatterNoStyle];
+    
+    NSDateFormatter *timeFormatter = [[NSDateFormatter alloc] init];
+    [timeFormatter setDateStyle:NSDateFormatterNoStyle];
+    [timeFormatter setTimeStyle:NSDateFormatterMediumStyle];
+    
+    NSString *formattedDateString = [dateFormatter stringFromDate:fallDate];
+    NSString *formattedTimeString = [timeFormatter stringFromDate:fallDate];
+    NSString *notes = currentFall.notes;
+    
+    NSString *introString = @"Hello All, \n\n";
     
     
-    //Array for Email Recipients
-    NSSortDescriptor *descriptor = [[NSSortDescriptor alloc] initWithKey:@"name" ascending:YES];
-    NSArray *sortDescriptors = [[NSArray alloc] initWithObjects:descriptor, nil];
-    NSArray *contactsArray = [self.currentUser.emergencyContacts sortedArrayUsingDescriptors:sortDescriptors];
-    _toRecipients = [contactsArray valueForKey:@"email"];
-    
-    
+    NSString *messageBody = [NSString stringWithFormat:@"%@ User %@ %@ experienced a fall today %@ at %@. \n\n-Courtesy of FallApp", introString, self.currentUser.firstName, self.currentUser.lastName, formattedDateString, formattedTimeString];
     
     //Set Email Variables
     NSString *emailTitle = [NSString stringWithFormat:@"Fall detected for %@ %@.", self.currentUser.firstName, self.currentUser.lastName];
-    NSString *messageBody = [NSString stringWithFormat:@"%@", self.latitude];
-//    NSArray *toRecipients = @"support@appcoda.com";
     
     MFMailComposeViewController *mc = [[MFMailComposeViewController alloc] init];
     mc.mailComposeDelegate = self;
     [mc setSubject:emailTitle];
     
     [mc setMessageBody:messageBody isHTML:NO];
-    [mc setToRecipients:_toRecipients];
+    [mc setToRecipients:emailArray];
     [mc setCcRecipients:[NSArray arrayWithObject:self.currentUser.email]];
     
     
