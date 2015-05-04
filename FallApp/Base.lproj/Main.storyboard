@@ -227,10 +227,10 @@
             </objects>
             <point key="canvasLocation" x="349" y="342"/>
         </scene>
-        <!--View Controller-->
+        <!--Fall View Controller-->
         <scene sceneID="mCF-zy-1y0">
             <objects>
-                <viewController id="oc4-5d-1MU" sceneMemberID="viewController">
+                <viewController id="oc4-5d-1MU" customClass="FallViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="iZ9-Ph-C9N"/>
                         <viewControllerLayoutGuide type="bottom" id="mnF-mI-ilK"/>
@@ -283,13 +283,13 @@
         <!--Recorded Falls-->
         <scene sceneID="4jl-DI-JsU">
             <objects>
-                <tableViewController clearsSelectionOnViewWillAppear="NO" id="8pZ-9j-YVa" sceneMemberID="viewController">
+                <tableViewController clearsSelectionOnViewWillAppear="NO" id="8pZ-9j-YVa" customClass="MasterViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="Zwh-c0-cTW">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="0MU-iR-8wA">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" id="0MU-iR-8wA">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="0MU-iR-8wA" id="v69-6W-i4N">
                                     <autoresizingMask key="autoresizingMask"/>
@@ -522,7 +522,7 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="1g0-84-6Vd"/>
-        <segue reference="mYy-J2-qq5"/>
         <segue reference="MIJ-zf-ZiA"/>
+        <segue reference="uzz-74-XC8"/>
     </inferredMetricsTieBreakers>
 </document>

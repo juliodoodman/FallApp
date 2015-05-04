@@ -12,7 +12,7 @@
 #import "Fall.h"
 
 @interface AppDelegate ()
-//Test Commit 2
+
 @end
 
 @implementation AppDelegate
@@ -22,6 +22,16 @@
 {
     //Fill the Managed Object Context with Objects
     [self makeNewEmergencyContactWithFirstName:@"Colin" andLastName:@"Barry" andEmail:@"cpbarry@asu.edu" inContext:self.managedObjectContext];
+    
+    [self.managedObjectContext executeFetchRequest:self.fetchedResultsController.fetchRequest error:nil];
+    
+    [self.managedObjectContext executeFetchRequest:self.fallFetchedResultsController.fetchRequest error:nil];
+    
+    if ([self.fallFetchedResultsController.fetchedObjects count] == 0)
+    {
+        [self makeNewFallWithXAccel:0 andYAccel:0 andZAccel:0 andTime:[NSDate date] andNotes:@"Fall" andLocation:@"Here" inContext:self.managedObjectContext];
+    }
+
     // Override point for customization after application launch.
     return YES;
     
@@ -141,7 +151,6 @@
     return _persistentStoreCoordinator;
 }
 
-
 - (NSManagedObjectContext *)managedObjectContext
 {
     // Returns the managed object context for the application (which is already bound to the persistent store coordinator for the application.)
@@ -157,6 +166,89 @@
     _managedObjectContext = [[NSManagedObjectContext alloc] init];
     [_managedObjectContext setPersistentStoreCoordinator:coordinator];
     return _managedObjectContext;
+}
+
+#pragma mark - Fetched results controller
+
+- (NSFetchedResultsController *)fetchedResultsController
+{
+    if (_fetchedResultsController != nil)
+    {
+        return _fetchedResultsController;
+    }
+    
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    // Edit the entity name as appropriate.
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"User" inManagedObjectContext:self.managedObjectContext];
+    
+    [fetchRequest setEntity:entity];
+    
+    // Set the batch size to a suitable number.
+    [fetchRequest setFetchBatchSize:20];
+    
+    // Edit the sort key as appropriate.
+    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"firstName" ascending:NO];
+    NSArray *sortDescriptors = @[sortDescriptor];
+    
+    [fetchRequest setSortDescriptors:sortDescriptors];
+    
+    // Edit the section name key path and cache name if appropriate.
+    // nil for section name key path means "no sections".
+    NSFetchedResultsController *aFetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:self.managedObjectContext sectionNameKeyPath:nil cacheName:@"AppDelegateCache"];
+    
+    aFetchedResultsController.delegate = self;
+    self.fetchedResultsController = aFetchedResultsController;
+    
+    NSError *error = nil;
+    if (![self.fetchedResultsController performFetch:&error])
+    {
+        // Replace this implementation with code to handle the error appropriately.
+        // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
+        NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+        abort();
+    }
+    return _fetchedResultsController;
+}
+
+- (NSFetchedResultsController *)fallFetchedResultsController
+{
+    if (_fallFetchedResultsController != nil)
+    {
+        return _fallFetchedResultsController;
+    }
+    
+    NSFetchRequest *fallFetchRequest = [[NSFetchRequest alloc] init];
+    // Edit the entity name as appropriate.
+    NSEntityDescription *fallEntity = [NSEntityDescription entityForName:@"Fall" inManagedObjectContext:self.managedObjectContext];
+    
+    [fallFetchRequest setEntity:fallEntity];
+    
+    // Set the batch size to a suitable number.
+    [fallFetchRequest setFetchBatchSize:20];
+    
+    // Edit the sort key as appropriate.
+    NSSortDescriptor *fallSortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"time" ascending:NO];
+    NSArray *fallSortDescriptors = @[fallSortDescriptor];
+    
+    [fallFetchRequest setSortDescriptors:fallSortDescriptors];
+    
+    // Edit the section name key path and cache name if appropriate.
+    // nil for section name key path means "no sections".
+    NSFetchedResultsController *aFallFetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fallFetchRequest managedObjectContext:self.managedObjectContext sectionNameKeyPath:nil cacheName:@"AppDelegateCache"];
+    
+    aFallFetchedResultsController.delegate = self;
+    
+    self.fallFetchedResultsController = aFallFetchedResultsController;
+    
+    NSError *error = nil;
+    if (![self.fallFetchedResultsController performFetch:&error])
+    {
+        // Replace this implementation with code to handle the error appropriately.
+        // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
+        NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+        abort();
+    }
+    return _fallFetchedResultsController;
 }
 
 #pragma mark - Core Data Saving support

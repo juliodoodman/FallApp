@@ -17,6 +17,9 @@
 AVAudioPlayer *theAudio;
 
 @synthesize ble;
+CLLocationManager *manager;
+CLGeocoder *geocoder;
+CLPlacemark *placemark;
 
 BOOL fallDetected = FALSE;
 
@@ -26,6 +29,7 @@ BOOL fallDetected = FALSE;
     ble = [[BLE alloc] init];
     [ble controlSetup:(0)];
     ble.delegate = self;
+    
     
     manager = [[CLLocationManager alloc] init];
     geocoder = [[CLGeocoder alloc] init];

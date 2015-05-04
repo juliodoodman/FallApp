@@ -15,7 +15,6 @@
 
 @property (nonatomic, retain) NSString * location;
 @property (nonatomic, retain) NSString * notes;
-@property (nonatomic, retain) NSString * location;
 @property (nonatomic, retain) NSDate * time;
 @property (nonatomic, retain) NSNumber * xAccel;
 @property (nonatomic, retain) NSNumber * yAccel;

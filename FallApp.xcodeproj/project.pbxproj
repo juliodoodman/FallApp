@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3B184FD71AF6CFCD001DF4CE /* alarm.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 3B184FD61AF6CFCD001DF4CE /* alarm.mp3 */; };
 		3BCCF3131AF5525A0078E8B2 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3BCCF3121AF5525A0078E8B2 /* MessageUI.framework */; };
 		3BCCF3151AF552630078E8B2 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3BCCF3141AF552630078E8B2 /* AVFoundation.framework */; };
 		3BCCF3171AF554D20078E8B2 /* BLE.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BCCF3161AF554D20078E8B2 /* BLE.m */; };
@@ -21,6 +20,9 @@
 		766EBDFF1AF56A1500627901 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 766EBDFE1AF56A1500627901 /* User.m */; };
 		766EBE021AF56A1600627901 /* EmergencyContact.m in Sources */ = {isa = PBXBuildFile; fileRef = 766EBE011AF56A1600627901 /* EmergencyContact.m */; };
 		766EBE081AF58E8700627901 /* Fall.m in Sources */ = {isa = PBXBuildFile; fileRef = 766EBE071AF58E8700627901 /* Fall.m */; };
+		76891ECA1AF6F3F5005723B2 /* alarm.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 76891EC91AF6F3F5005723B2 /* alarm.mp3 */; };
+		76891ECD1AF6F5C3005723B2 /* FallViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 76891ECC1AF6F5C3005723B2 /* FallViewController.m */; };
+		76891ED61AF6F76D005723B2 /* MasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 76891ED51AF6F76D005723B2 /* MasterViewController.m */; };
 		76D383C11AE5B54200359774 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 76D383C01AE5B54200359774 /* main.m */; };
 		76D383C41AE5B54200359774 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 76D383C31AE5B54200359774 /* AppDelegate.m */; };
 		76D383C71AE5B54200359774 /* FallApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 76D383C51AE5B54200359774 /* FallApp.xcdatamodeld */; };
@@ -47,7 +49,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		3B184FD61AF6CFCD001DF4CE /* alarm.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = alarm.mp3; path = ../../alarm.mp3; sourceTree = "<group>"; };
 		3BCCF3121AF5525A0078E8B2 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		3BCCF3141AF552630078E8B2 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		3BCCF3161AF554D20078E8B2 /* BLE.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = BLE.m; path = FallApp/BLE_Framework/BLE.m; sourceTree = "<group>"; };
@@ -68,6 +69,11 @@
 		766EBE011AF56A1600627901 /* EmergencyContact.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EmergencyContact.m; sourceTree = "<group>"; };
 		766EBE061AF58E8700627901 /* Fall.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Fall.h; sourceTree = "<group>"; };
 		766EBE071AF58E8700627901 /* Fall.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Fall.m; sourceTree = "<group>"; };
+		76891EC91AF6F3F5005723B2 /* alarm.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = alarm.mp3; sourceTree = "<group>"; };
+		76891ECB1AF6F5C3005723B2 /* FallViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FallViewController.h; sourceTree = "<group>"; };
+		76891ECC1AF6F5C3005723B2 /* FallViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FallViewController.m; sourceTree = "<group>"; };
+		76891ED41AF6F76D005723B2 /* MasterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MasterViewController.h; path = ../MasterViewController.h; sourceTree = "<group>"; };
+		76891ED51AF6F76D005723B2 /* MasterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MasterViewController.m; path = ../MasterViewController.m; sourceTree = "<group>"; };
 		76D383BB1AE5B54200359774 /* FallApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FallApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		76D383BF1AE5B54200359774 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		76D383C01AE5B54200359774 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -152,6 +158,7 @@
 		76D383BD1AE5B54200359774 /* FallApp */ = {
 			isa = PBXGroup;
 			children = (
+				76891EC91AF6F3F5005723B2 /* alarm.mp3 */,
 				76D383C21AE5B54200359774 /* AppDelegate.h */,
 				76D383C31AE5B54200359774 /* AppDelegate.m */,
 				76362CC51AE8486F00A132E6 /* LoginScreenViewController.h */,
@@ -166,9 +173,12 @@
 				76362CCF1AE84F7200A132E6 /* HowToViewController.m */,
 				76362CD11AE852F200A132E6 /* TestingViewController.h */,
 				76362CD21AE852F200A132E6 /* TestingViewController.m */,
+				76891ECB1AF6F5C3005723B2 /* FallViewController.h */,
+				76891ECC1AF6F5C3005723B2 /* FallViewController.m */,
+				76891ED41AF6F76D005723B2 /* MasterViewController.h */,
+				76891ED51AF6F76D005723B2 /* MasterViewController.m */,
 				76D383CB1AE5B54200359774 /* Main.storyboard */,
 				76D383CE1AE5B54200359774 /* Images.xcassets */,
-				3B184FD61AF6CFCD001DF4CE /* alarm.mp3 */,
 				76D383D01AE5B54200359774 /* LaunchScreen.xib */,
 				76D383C51AE5B54200359774 /* FallApp.xcdatamodeld */,
 				76D383BE1AE5B54200359774 /* Supporting Files */,
@@ -287,7 +297,7 @@
 				76362CC11AE8456500A132E6 /* BLE_Framework in Resources */,
 				76D383D21AE5B54200359774 /* LaunchScreen.xib in Resources */,
 				76D383CF1AE5B54200359774 /* Images.xcassets in Resources */,
-				3B184FD71AF6CFCD001DF4CE /* alarm.mp3 in Resources */,
+				76891ECA1AF6F3F5005723B2 /* alarm.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -307,6 +317,7 @@
 			files = (
 				3BCCF3171AF554D20078E8B2 /* BLE.m in Sources */,
 				76362CC41AE8460D00A132E6 /* BLE_Framework in Sources */,
+				76891ECD1AF6F5C3005723B2 /* FallViewController.m in Sources */,
 				76D383C41AE5B54200359774 /* AppDelegate.m in Sources */,
 				766EBE021AF56A1600627901 /* EmergencyContact.m in Sources */,
 				76362CC71AE8486F00A132E6 /* LoginScreenViewController.m in Sources */,
@@ -316,6 +327,7 @@
 				766EBE081AF58E8700627901 /* Fall.m in Sources */,
 				766EBDFF1AF56A1500627901 /* User.m in Sources */,
 				76D383C11AE5B54200359774 /* main.m in Sources */,
+				76891ED61AF6F76D005723B2 /* MasterViewController.m in Sources */,
 				76362CCD1AE84D4000A132E6 /* SignUpViewController.m in Sources */,
 				76362CCA1AE84BA000A132E6 /* SettingsViewController.m in Sources */,
 				76362CD31AE852F200A132E6 /* TestingViewController.m in Sources */,

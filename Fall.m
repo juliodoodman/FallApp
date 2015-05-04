@@ -19,6 +19,5 @@
 @dynamic yAccel;
 @dynamic zAccel;
 @dynamic user;
-@dynamic location;
 
 @end
