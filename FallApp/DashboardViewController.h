@@ -18,6 +18,9 @@
 #import "User.h"
 
 @interface DashboardViewController : UIViewController <BLEDelegate, AVAudioPlayerDelegate, MFMailComposeViewControllerDelegate, CLLocationManagerDelegate>
+{
+    NSTimer *Timer;
+}
 
 @property (strong, nonatomic) BLE *ble;
 
@@ -44,5 +47,7 @@
 
 -(void) showEmail;
 -(void) playAudio;
+
+-(void)TimerCount;
 @end
 
